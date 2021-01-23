@@ -12,15 +12,12 @@
 }
 
 .main_navbar_container {
-    /* background-color: #000000; */
-    background-color: #d6324e;
+    background-color: #000000;
+    /* background-color: #d6324e; */
     width: 20vw;
     height: 100vh;
     float: left;
     text-align: center;
-    border-top-left-radius: 3rem;
-    border-bottom-left-radius: 3rem;
-    color: violet;
 }
 
 .navbar_ui {

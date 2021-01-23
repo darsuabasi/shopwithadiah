@@ -17,17 +17,17 @@ const Navbar = () => {
                 </li>
 
                 <li class="navbar_li">
-                    <NavLink className="navigation-links" to={"/products"}> Products </NavLink>
+                    <NavLink className="navigation-links" to={"/adiah/explore"}> Explore </NavLink>
                 </li>
 
 
                 <li class="navbar_li">
-                    <NavLink className="navigation-links" to={"/shop"}> Shop </NavLink>
+                    <NavLink className="navigation-links" to={"/adiah/shop"}> Shop </NavLink>
                 </li>
 
-                <li class="navbar_li">
-                    <NavLink className="navigation-links" to={"/explore"}> Explore </NavLink>
-                </li>
+                {/* <li class="navbar_li">
+                    <NavLink className="navigation-links" to={"adiah/explore"}> Explore </NavLink>
+                </li> */}
             </ul>
         </div> 
     )
