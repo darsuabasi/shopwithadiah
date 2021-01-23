@@ -15,8 +15,9 @@
     background-image: url('../../assets//landing_red_bg.JPG');
     background-size: 700px 1000px;
     background-position: top;
+    /* background-position: center; */
     /* background-repeat: no-repeat; */
-    /* background-size: contain; */
+    /* background-size: cover; */
 }
 
 .landing_sub {
