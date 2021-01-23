@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.landing_main {
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    float: right;
+    color: #ffffff;
+    font-family: 'Dancing Script', cursive;
+    justify-content: center;
+    align-content: center;
+    background-image: url('../../assets//landing_red_bg.JPG');
+    background-size: 700px 1000px;
+    background-position: top;
+    /* background-repeat: no-repeat; */
+    /* background-size: contain; */
+}
+
+.landing_sub {
+    height: 100vh;
+    /* margin-top: 5%; */
+    /* margin-bottom: 5%; */
+    /* margin-right: 5%; */
+    /* border-radius: 2rem; */
+    background-color: #000000;
+    /* background-image: url('../../assets/landingpage_red_bg.png'); */
+    background-size: contain;
+    /* background-size: 1150px 900px; */
+    background-repeat: round;
+}
+
+.landingBio {
+    color: #ffffff;
+    margin: auto;
+    margin-top: 30%;
+    width: 50%;
+    border: 5px solid #ffffff;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 16.5rem;
+}
+
+.typeingAni {
+    height: 14rem;
+    width: 20rem;
+    line-height: 1;
+    margin: auto;
+    margin-top: 5%;
+    width: 50%;
+}
+
+.landingInfoSub {
+    font-weight: 700;
+    line-height: 2;
+}
+
+.info-sub-one {
+    font-size: 52px;
+
+}
+
+.info-sub-two {
+    font-size: 25px;
+
+}
+
+.enterWorldBtn {
+    background-color: #cb0000;
+    width: 20%;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to left, #ffffff, #F18E7C) !important;
+    background-size: 200%;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #fff;
+    font-family: 'Dancing Script', cursive;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .5s;
+    height: 35px;
+    box-shadow: #ffffff 1px 1px 3px 3px;
+}
+
+.enterWorldBtn:hover {
+    background-position: right;
+    color: #cb0000;
+    box-shadow: #cb0000 1px 1px 3px 3px;
+  }
+
+@media only screen and (max-height: 750px) {
+    .landingBio {
+        color: #ffffff;
+        margin: auto;
+        margin-top: 25%;
+        width: 50%;
+        border: 5px solid #ffffff;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 16.5rem;
+    }
+}
+
+@media only screen and (max-width: 980px) {
+    .landingBio {
+        margin-top: 40%;
+        width: 90%;
+        height: 18.5rem;
+    }
+
+    .enterWorldBtn {
+        width: 45%;
+    }
+}
