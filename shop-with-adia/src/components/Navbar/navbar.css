@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    width: 20vw;
+    height: 100vh;
+    float: right;
+    position: fixed !important;
+
+}
+
+.main_navbar_container {
+    /* background-color: #000000; */
+    background-color: #d6324e;
+    width: 20vw;
+    height: 100vh;
+    float: left;
+    text-align: center;
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+    color: violet;
+}
+
+.navbar_ui {
+    text-align: center;
+    padding-top: 100%;
+}
+
+.navbar_li, .navigation-links {
+    color: #ffffff;
+    font-weight: 500;
+    font-variant: small-caps;
+    font-size: 36px;
+    font-family: 'Dancing Script', cursive;
+    text-decoration: none;
+}
+
+.navbar_li:hover, .navigation-links:hover {
+    color: rgb(255, 99, 71);
+}
