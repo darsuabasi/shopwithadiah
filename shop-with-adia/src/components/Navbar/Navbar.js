@@ -13,7 +13,7 @@ const Navbar = () => {
                 </li>
 
                 <li class="navbar_li">
-                    <NavLink className="navigation-links" to={"/adiah"}> Adia </NavLink>
+                    <NavLink className="navigation-links" to={"/adiah"}> Adiah </NavLink>
                 </li>
 
                 <li class="navbar_li">
