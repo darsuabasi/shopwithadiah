@@ -11,6 +11,9 @@ import ExploreData from './components/Data/ExploreData';
 import InfoSection from './components/InfoSection/InfoSection';
 import { InfoData } from './components/Data/InfoData';
 
+import TypingHeader from './components/Explore/TypingHeader';
+import { typingData } from './components/Data/TypingData';
+
 const App = () => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -21,6 +24,7 @@ const App = () => {
     <div className="shopwithAdia_app">
     <BrowserRouter>
       <Switch>
+        {/* <TypingHeader changingHeaders={typingData} /> */}
         <Route exact path="/">
           <Landing/>
         </Route>
