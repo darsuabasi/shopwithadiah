@@ -3,6 +3,9 @@
 # dependencies
 /node_modules
 assets
+exploreAssets
+designedAssets
+infoDataAssets
 /.pnp
 .pnp.js
 
