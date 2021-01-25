@@ -18,6 +18,14 @@ import wifWine2 from '../../designedAssets/wif-wine2.png';
 import wifWine3 from '../../designedAssets/wif-wine3.png';
 
 export const exploreData = [
+
+    {
+        title: 'DemoTitle',
+        price: '$40',
+        image: pcFloral, 
+        alt: 'favorites'
+    },
+    
     {
         title: 'DemoTitle',
         price: '$40',
@@ -57,13 +65,6 @@ export const exploreData = [
         title: 'DemoTitle',
         price: '$40',
         image: firstAidBeauty, 
-        alt: 'favorites'
-    },
-
-    {
-        title: 'DemoTitle',
-        price: '$40',
-        image: pcFloral, 
         alt: 'favorites'
     },
 

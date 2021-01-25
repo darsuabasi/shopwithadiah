@@ -1,9 +1,13 @@
 import React, { useState, useRef, useEffect} from 'react';
 import styled, { css } from 'styled-components/macro';
+import { keyframes } from "styled-components";
 import { exploreData } from '../Data/ExploreData';
 import Button from '../Button/Button';
 import { IoMdArrowRoundForward } from 'react-icons/io';
 import { IoArrowForward, IoArrowBack} from 'react-icons/io5';
+import TypingHeader from './TypingHeader.js';
+import { typingData } from '../Data/TypingData';
+import { shake, bounce, hinge, rotateInDownLeft, rubberBand, slideInRight, slideInLeft } from "react-animations";
 
 
 const ExploreMain = styled.section`
@@ -130,31 +134,58 @@ const NextArrow = styled(IoArrowForward)`
 const ExploreLeftDiv = styled.div `
     width: 50%;
     height: 100%;
-    top: 0;
-    left: 0;
+    ${'' /* top: 0; */}
+    ${'' /* left: 0; */}
     background: #000;
+`
+const LeftDivSub = styled.div `
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    background: #000;
+    padding: 20%;
+    ${'' /* background: darkgreen; */}
+    text-align: center
 `
 
 
 
+
 const Explore = ({slides}) => {
+
+    const Bounce = styled.div`animation: 10s ${keyframes `${bounce}`} infinite`;
+    // const Flip = styled.div`animation: 5s ${keyframes `${flip}`} infinite`;
+    const RotateInDownLeft = styled.div`animation: 5s ${keyframes `${rotateInDownLeft}`} infinite`;
+    const RubberBand = styled.div`animation: 5s ${keyframes `${rubberBand}`} infinite`;
+    // const Tada = styled.div`animation: 5s ${keyframes `${tada}`} infinite`;
+    const Hinge = styled.div`animation: 8s ${keyframes `${hinge}`} infinite`;
+    // const Jello = styled.div`animation: 5s ${keyframes `${jello}`} infinite`;
+    const SlideInRight = styled.div`animation: 15s ${keyframes `${slideInRight}`} infinite`;
+    const SlideInLeft = styled.div`animation: 15s ${keyframes `${slideInLeft}`} infinite`;
+    const Shake = styled.div`animation: 5s ${keyframes `${shake}`} infinite`;
+
+    
+    // const tadaFlip = merge(tada, flip);
+
     const [current, setCurrent] = useState(0);
     const length = slides.length;
     const timeout = useRef(null);
 
     // for slider autoplay
-    // useEffect(() => {
-    //     const nextSlide = () => {
-    //         setCurrent(current => (current === length - 1 ? 0 : current + 1));
-    //     }
-    //     timeout.current = setTimeout(nextSlide, 3000);
+    useEffect(() => {
+        const nextSlide = () => {
+            setCurrent(current => (current === length - 1 ? 0 : current + 1));
+        }
+        timeout.current = setTimeout(nextSlide, 15000);
 
-    //     return function() {
-    //         if(timeout.current) {
-    //             clearTimeout(timeout.current)
-    //         }
-    //     }
-    // }, [current, length])
+        return function() {
+            if(timeout.current) {
+                clearTimeout(timeout.current)
+            }
+        }
+    }, [current, length])
 
 
     const nextSlide = () => {
@@ -208,7 +239,30 @@ const Explore = ({slides}) => {
             </div> */}
 
             <ExploreLeftDiv> 
-                <h1> Hello left div</h1>
+                <LeftDivSub>
+                    <SlideInRight> 
+                        <h1 style={{fontSize: '55px', color: '#fff'}}> Explore my favorite</h1>
+                    </SlideInRight>
+                    {/* <SlideInLeft>  */}
+                        <h3 style={{fontSize: '45px', color: '#fff'}}> skin care products</h3>
+                    {/* </SlideInLeft> */}
+                    {/* <SlideInRight>  */}
+                        <h1 style={{fontSize: '40px', color: '#fff'}}> fashion pieces</h1>
+                    {/* </SlideInRight> */}
+                    {/* <SlideInLeft>  */}
+                        <h3 style={{fontSize: '35px', color: '#fff'}}> fragrances</h3>
+                    {/* </SlideInLeft> */}
+                    {/* <SlideInRight>  */}
+                        <h1 style={{fontSize: '30px', color: '#fff'}}> wines </h1>
+                    {/* </SlideInRight> */}
+
+
+                    {/* <Shake> 
+                        <h3 style={{fontSize: '65px', color: '#fff'}}> fragrances. </h3>
+                    </Shake> */}
+
+                    {/* <TypingHeader changingHeaders={typingData}/> */}
+                </LeftDivSub>
             </ExploreLeftDiv>
 
         </ExploreMain>
