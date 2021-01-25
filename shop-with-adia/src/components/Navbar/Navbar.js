@@ -6,14 +6,14 @@ import { menuData } from '../Data/MenuData';
 import { FaBars } from 'react-icons/fa';
 
 const Nav = styled.nav`
-    height: 10vh;
+    height: 12vh;
     display: flex;
     justify-content: space-between;
     padding: 1rem 2rem;
     z-index: 100;
     position: fixed;
     width: 100%;
-    background: #000;
+    ${'' /* background: #000; */}
     text-align: center;
     ${'' /* margin-top: 1%; */}
 

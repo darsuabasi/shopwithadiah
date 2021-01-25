@@ -13,26 +13,27 @@ const ExploreMain = styled.section`
     overflow: hidden;
 `;
 
-const ExploreWrapper =  styled.div `
-    width: 100%;
-    height: 100%;
+const ExploreSliderWrapper =  styled.div `
+    width: 50%;
+    ${'' /* height: 100%; */}
     display: flex;
     justify-content: center;
     align-items: center; 
     overflow: hidden;
-    position: relative
+    ${'' /* float: left; */}
+    ${'' /* position: relative */}
 `;
 
-const ExploreSlide = styled.div`
+const SliderSlide = styled.div`
     z-index: 1;
-    width: 100%;
+    width: 50%;
     height: 100%;
 `;
 
-const ExploreSlider = styled.div`
+const Slider = styled.div`
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -46,7 +47,7 @@ const ExploreSlider = styled.div`
         width: 100%;
         height: 100vh;
         bottom: 0vh;
-        left: 0;
+        right: 0;
         overflow: hidden; 
         opacity: 0.4;
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.6) 100%)
@@ -54,22 +55,22 @@ const ExploreSlider = styled.div`
 
 `;
 
-const ExploreImages = styled.img`
+const SliderImages = styled.img`
     position: absolute; 
     top: 0;
-    left: 0;
-    width: 100vw;
+    right: 0;
+    width: 50vw;
     height: 100vh;
     object-fit: cover;
 `;
 
-const ExploreContent = styled.div`
-    position: relative;
+const SliderContent = styled.div`
+    ${'' /* position: relative; */}
     z-index: 10;
     display: flex;
     flex-direction: column;
     max-width: 1600px;
-    width: calc(100%-100px);
+    width: calc(50%-100px);
     color: #000;
 
     h1 {
@@ -126,6 +127,13 @@ const NextArrow = styled(IoArrowForward)`
     ${arrowButtons}
 `;
 
+const ExploreLeftDiv = styled.div `
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #000;
+`
 
 
 
@@ -170,35 +178,38 @@ const Explore = ({slides}) => {
 
     return (
         <ExploreMain className="explore_main">
-            <ExploreWrapper>
+            <ExploreSliderWrapper>
                 {exploreData.map((slide, index) => {
                     return (
-                        <ExploreSlide key={index}>
+                        <SliderSlide key={index}>
                             {index === current && (
-                                <ExploreSlider>
-                                    <ExploreImages src={slide.image} alt={slide.alt} />
-                                    <ExploreContent>
+                                <Slider>
+                                    <SliderImages src={slide.image} alt={slide.alt} />
+                                    <SliderContent>
                                         {/* <h1> {slide.title} </h1> */}
                                         {/* <p> {slide.price} </p> */}
                                         {/* <Button css={`max-width: 160px`} to={slide.path} primary="true"> 
                                             {slide.label} 
                                             <Arrow/>
                                         </Button> */}
-                                    </ExploreContent>   
-                                </ExploreSlider>
+                                    </SliderContent>   
+                                </Slider>
                             )} 
-                        </ExploreSlide>
+                        </SliderSlide>
                     )
                 })}
                 <ExploreButtons>
                     <PrevArrow onClick={prevSlide} />
                     <NextArrow onClick={nextSlide } />
                 </ExploreButtons>
-            </ExploreWrapper>
+            </ExploreSliderWrapper>
             {/* <div className="explore_header_div">
                 <h1 className="explore_header_content"> From me to you, with love</h1>
             </div> */}
 
+            <ExploreLeftDiv> 
+                <h1> Hello left div</h1>
+            </ExploreLeftDiv>
 
         </ExploreMain>
     )
