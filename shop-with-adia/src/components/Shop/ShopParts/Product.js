@@ -16,6 +16,7 @@ const ProductMain = styled.div`
     min-width: 100px;
     background-color: white;
     z-index: 1;
+    border: 1px solid #000;
 `;
 
 const ProductImage = styled.img`
@@ -24,6 +25,7 @@ const ProductImage = styled.img`
     object-fit: cover;
     position: absolute;
     margin-bottom: 15px;
+    ${'' /* padding-top: 15px; */}
 
     &:hover {
       transition:transform 2s ease;
@@ -34,8 +36,8 @@ const ProductImage = styled.img`
 
 const ProductInfo = styled.div`
     height: 100px;
+    font-size: 20px;
     margin-bottom: 15px;
-    font-size: 20px
 `;
 
 const ProductPrice = styled.div`
@@ -80,9 +82,10 @@ const Product = ({ id, title, price, image, imageTwo }) => {
           <small>$</small>
           <strong>{price}</strong>
         </ProductPrice>
-        </ProductInfo>
-        <HoverImage style={{maxHeight:'300px', width:'100%', objectFit:'contain', marginBottom:'15px', transition:'transform 2s ease-in-out'}} src={image} hoverSrc={imageTwo} alt=""/>
-      <ProdButton>Add to Basket</ProdButton>
+      </ProductInfo>
+      <HoverImage style={{maxHeight:'300px', width:'100%', objectFit:'contain', marginBottom:'15px', transition:'transform 2s ease-in-out'}} src={image} hoverSrc={imageTwo} alt=""/>
+      
+      <ProdButton title={title} to="/adiah/shop/products/{title}">View More</ProdButton>
     </ProductMain>
   );
 }

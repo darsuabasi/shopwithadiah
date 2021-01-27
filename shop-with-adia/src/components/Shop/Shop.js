@@ -4,6 +4,9 @@ import Product from './ShopParts/Product';
 import shopbg4 from './Assets/shopbg4.png';
 import mmJcProdShotThree from './exploreAssets/mmJcProdShotThree.png';
 import lauraMercierBGRemoved from './exploreAssets/lauraMercierBGRemoved.png';
+import { productData } from './Data/ProductData';
+import { Link } from 'react-router-dom';
+import HoverImage from "react-hover-image";
 
 // import shopbg1 from './Assets/shopbg1.png';
 // import shopbg2 from './Assets/shopbg2.png';
@@ -72,17 +75,92 @@ const ShopRows = styled.section`
 //     margin-right: 5px;
 // `
 
+const ProductMain = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 10px;
+    padding: 20px;
+    width: 100%;
+    max-height: 400px;
+    min-width: 100px;
+    background-color: white;
+    z-index: 1;
+    border: 1px solid #000;
+`;
+
+const ProductImage = styled.img`
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    margin-bottom: 15px;
+    ${'' /* padding-top: 15px; */}
+
+    &:hover {
+      transition:transform 2s ease;
+      transform: scale(1.2);
+      flex-grow: 0.5; 
+    }
+`;
+
+const ProductInfo = styled.div`
+    height: 100px;
+    font-size: 20px;
+    margin-bottom: 15px;
+`;
+
+const ProductPrice = styled.div`
+    margin-top: 5px;
+`;
+
+const ProdButton = styled(Link)`
+    background: #000;
+    border: 2px solid;
+    margin-top: 10px;
+    padding: 8px;
+    border-color: #fff;
+    color: #fff; 
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+
+    &:hover {
+        transform: translateY(-2px);
+        cursor: pointer;
+    }
+`
 
 
-const Shop = () => {
+
+
+const Shop = ({id, title, price, image, imageTwo}) => {
     return (
         <ShopHome>
             <div>
                 <ShopImage src={shopbg4} alt="" />
 
                 <ShopRows>
+                    {productData.map((prods, id) => {
+                        return (
+                            <ProductMain>
+                                <ProductInfo>
+                                    <p>{prods.title}</p>
+                                    <ProductPrice>
+                                    <small>$</small>
+                                    <strong>{prods.price}</strong>
+                                    </ProductPrice>
+                                </ProductInfo>
+                                <HoverImage style={{maxHeight:'300px', width:'100%', objectFit:'contain', marginBottom:'15px', transition:'transform 2s ease-in-out'}} src={prods.image} hoverSrc={prods.imageTwo} alt=""/>
+                                <ProdButton title={prods.title} to="/adiah/shop/products/{prods.title}">View More</ProdButton>
+                            </ProductMain>
+                        )
+                    })}
 
-                    <Product
+            
+
+                    {/* <Product
                         id="01119"
                         title="Mosel Scharzhofberger Riesling Auslese 2017 - Egon Müller, Vintage"
                         price={857.79}
@@ -127,7 +205,7 @@ const Shop = () => {
                         />
 
                     <Product
-                        id="01119"
+                        id="011191"
                         title="Distressed high-rise straight-leg jeans by Maison Margiela"
                         price={690.00}
                         rating={4}
@@ -163,7 +241,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="011193"
                         title="Run Star Hike by Converse"
                         price={115.00}
                         rating={4}
@@ -183,7 +261,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="0111983"
                         title="Lip Sleeping Mask by LANEIGE"
                         price={22.00}
                         rating={4}
@@ -192,7 +270,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="0111446"
                         title="The It Girl by Cecily von Ziegesar"
                         price={12.99}
                         rating={4}
@@ -201,7 +279,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="0111931"
                         title="Teint Idole Ultra Long Wear Foundation by Lancôme"
                         price={47.00}
                         rating={4}
@@ -210,7 +288,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="011193816"
                         title="RUBY BERRIES 100 ML (3.4 FL. OZ) by ZARA"
                         price={19.90}
                         rating={4}
@@ -219,7 +297,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="011190273"
                         title="Stretch Curvy Mom Jean by American Eagle"
                         price={49.95}
                         rating={4}
@@ -228,7 +306,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="0111910020"
                         title="Bum Bum Cream vy Sol de Janeiro"
                         price={45.00}
                         rating={4}
@@ -237,7 +315,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="0111908362"
                         title="Cotton Underwire Bra by ZARA"
                         price={29.90}
                         rating={4}
@@ -246,7 +324,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="01119017384"
                         title="Tobacco Vanille by TOM FORD"
                         price={650.00}
                         rating={4}
@@ -255,7 +333,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="01119118393"
                         title="LOGO BUCKET HAT by LEVI"
                         price={25.00}
                         rating={4}
@@ -264,7 +342,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="01119001832"
                         title="Dracaena Marginata | Dragon Tree via IKEA"
                         price={12.99}
                         rating={4}
@@ -273,7 +351,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="011191710002"
                         title="Sportswear Marble EcoDown by Nike"
                         price={300.00}
                         rating={4}
@@ -282,7 +360,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="011191111938"
                         title="Outfitter Luggage | 70L by Herschel"
                         price={139.00}
                         rating={4}
@@ -291,7 +369,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="0111910941571"
                         title="LIBRE Eau de Parfum Intense by Yves Saint Laurent"
                         price={132.00}
                         rating={4}
@@ -300,7 +378,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="011190992483"
                         title="La nuit Trésor Eau de Parfum by LANCÔME"
                         price={126.00}
                         rating={4}
@@ -309,7 +387,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="01119777339"
                         title="Women's Metallic 1502443 Premiere Bracelet Watch: BOSS by Hugo Boss"
                         price={441.00}
                         rating={4}
@@ -318,7 +396,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="011196392172"
                         title="Ultra Repair BarriAIR Cream by First Aid Beauty"
                         price={30.00}
                         rating={4}
@@ -327,7 +405,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="011191019339"
                         title="Criminal Minds: The Complete Series via Barnes & Noble"
                         price={199.99}
                         rating={4}
@@ -336,7 +414,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="011191119383"
                         title="Gloss Bomb Universal Lip Luminizer: FENTY BEAUTY by Rihanna"
                         price={19.00}
                         rating={4}
@@ -345,7 +423,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="0111993749"
                         title="Dracaena Massangeana | Dom plant via IKEA"
                         price={24.99}
                         rating={4}
@@ -354,7 +432,7 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="01119000183"
                         title="Short pink and white viscose dress by BALMAIN"
                         price={4795.00}
                         rating={4}
@@ -363,13 +441,13 @@ const Shop = () => {
                         />
 
                         <Product
-                        id="01119"
+                        id="01119210215"
                         title="Large 3-in-1 Nano Ionic Facial Steamer by NanoSteamer"
                         price={49.95}
                         rating={4}
                         image="https://images-na.ssl-images-amazon.com/images/I/712XJoEzzVL._SL1500_.jpg"
                         imageTwo="https://images-na.ssl-images-amazon.com/images/I/7152FpTRn3L._SL1500_.jpg"
-                        />
+                        /> */}
                 </ShopRows>
             </div>
         </ShopHome>
