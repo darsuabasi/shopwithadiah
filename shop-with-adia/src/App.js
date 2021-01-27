@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 // import ReactDOM from "react-dom";
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
-
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from './components/Navbar/Navbar';
 import Landing from './components/Landing/Landing';
 import Explore from './components/Explore/Explore'
@@ -10,9 +9,12 @@ import ExploreData from './components/Data/ExploreData';
 // import Dropdown from './components/Dropdown/Dropdown';
 import InfoSection from './components/InfoSection/InfoSection';
 import { InfoData } from './components/Data/InfoData';
+import { productData } from './components/Shop/Data/ProductData';
 
 import TypingHeader from './components/Explore/TypingHeader';
 import { typingData } from './components/Data/TypingData';
+import Shop from './components/Shop/Shop.js';
+import SingleProductDisplay from './components/Shop/ShopParts/SingleProductDisplay'
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,7 +24,7 @@ const App = () => {
   }
   return(
     <div className="shopwithAdia_app">
-    <BrowserRouter>
+    <Router>
       <Switch>
         {/* <TypingHeader changingHeaders={typingData} /> */}
         <Route exact path="/">
@@ -42,12 +44,23 @@ const App = () => {
                 <InfoSection {...InfoData} />
               </Route>
 
+              <Route exact path={"/adiah/shop"}>
+                <Shop />
+              </Route>
+
+              <Route exact path={"/adiah/shop/products/:id"}>
+                <SingleProductDisplay {...productData} />
+              </Route>
+              
+
+              
+
 
             </Switch>
         </div>
 
       </Switch>
-    </BrowserRouter>
+    </Router>
     </div>
   )
 }
