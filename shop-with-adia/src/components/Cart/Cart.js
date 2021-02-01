@@ -52,15 +52,50 @@ const ProductMain = styled.div`
 
 const TotalDiv = styled.div `
     display: flex;
-    text-align: start;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
     margin-top: 4rem;
     margin-bottom: 1rem;
+    margin-left: 7rem;
     border: 3px solid #000;
+    width: 800px;
+
+    @media screen and (max-width: 1200px) {
+        width: 600px;
+        margin-left: 5rem;
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 500px;
+        margin-left: -0.8rem;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 400px;
+        margin-left: -0.3rem;
+    }
 
 `;
 const Subtotal = styled.div `
     display: flex;
-    text-align: start;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+     @media screen and (max-width: 1200px) {
+        width: 600px;
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 500px;
+        margin-left: -2rem;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 400px;
+        margin-left: -0.8rem;
+    }
 `;
 
 const SubTotHeading = styled.p `
@@ -69,21 +104,46 @@ const SubTotHeading = styled.p `
     justify-content: center;
     align-self: center;
     padding: 0.5rem;
+    width: 700px;
+
+    @media screen and (max-width: 500px) {
+        ${'' /* width: px; */}
+    }
 `
 
 const ActionBtnDiv = styled.div `
     display: grid;
     grid-template-rows: 1fr 1fr;
     border-left: 3px solid #000;
+    width: 320px;
+
+    @media screen and (max-width: 500px) {
+        width: 150px;
+    }
 `
 
 const EmptyDiv = styled.div `
     justify-content: center;
+    text-align: center;
+    align-items: center;
     border-bottom:  3px solid #000;
+    width: 205px;
+
+    @media screen and (max-width: 500px) {
+        width: 150px;
+        font-size: 18px;
+    }
 `
 
 const EmptyDivTwo = styled.div `
-    justify-content: center
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    @media screen and (max-width: 500px) {
+        width: 150px;
+        font-size: 18px;
+    }
 `
 
 const EmptyCartDiv = styled.div `
@@ -117,6 +177,7 @@ const EmptyCartBtn  = styled(Link) `
     transition: 0.4s;
     display: flex;
     justify-content: center;
+    text-align: center;
     align-items: center;
     padding: ${({big}) => (big ? '16px 40px' : '14px 24px')}; 
     color: ${({ primary }) => (primary ? '#000' : '000d1a')};
@@ -156,10 +217,10 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
 
                     <ActionBtnDiv>
                         <EmptyDiv> 
-                            <EmptyCartBtn onClick={handleEmptyCart}> Empty Cart </EmptyCartBtn>
+                            <EmptyCartBtn primary={true} big={true} onClick={handleEmptyCart}> Empty Cart </EmptyCartBtn>
                         </EmptyDiv>
                         <EmptyDivTwo> 
-                            <EmptyCartBtn to="/adiah/shop/checkout"> Checkout </EmptyCartBtn>
+                            <EmptyCartBtn primary={true} big={true}  to="/adiah/shop/checkout"> Checkout </EmptyCartBtn>
                         </EmptyDivTwo>
                     </ActionBtnDiv>
 
