@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from 'styled-components/macro';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import HoverImage from "react-hover-image";
 
 
@@ -12,7 +12,7 @@ const ProductMain = styled.div`
     margin: 10px;
     padding: 20px;
     width: 100%;
-    max-height: 400px;
+    max-height: 600px;
     min-width: 100px;
     background-color: white;
     z-index: 1;
@@ -20,12 +20,11 @@ const ProductMain = styled.div`
 `;
 
 const ProductImage = styled.img`
-    height: 300px;
+    height: 300px !important;
     width: 100%;
     object-fit: cover;
     position: absolute;
     margin-bottom: 15px;
-    ${'' /* padding-top: 15px; */}
 
     &:hover {
       transition:transform 2s ease;
@@ -33,6 +32,20 @@ const ProductImage = styled.img`
       flex-grow: 0.5; 
     }
 `;
+
+const ProductName = styled.p `
+  text-align: start;
+  justify-content: start;
+  border: 1px solid #000;
+  width: 300px;
+  height: 65px;
+  position: relative;
+
+  @media screen and (max-width: 350px) {
+        width: 200px;
+    }
+
+`
 
 const ProductInfo = styled.div`
     height: 100px;
@@ -72,18 +85,18 @@ const ButtonDiv = styled.div`
 
 
 const Product = ({ product, onAddToCart }) => {
-
-  // const handleAddToCart = () => onAddToCart(product.id, 1);
+  const history = useHistory();
+  // const singlePorductRedirect = (prodId) => history.push(`/adiah/shop/${product.id}`);
 
   return (
     <ProductMain key={product.id} id={product.id} title={product.id}>
       <ProductInfo>
-        <p>{product.name}</p>
+        <ProductName>{product.name}</ProductName>
         <ProductPrice>
           <small>$</small>
           <strong>{product.price.formatted}</strong>
         </ProductPrice>
-        <h5 dangerouslySetInnerHTML={{ __html: product.description }}></h5>
+        {/* <h5 dangerouslySetInnerHTML={{ __html: product.description }}></h5> */}
       </ProductInfo>
       {/* add 2nd image for hover effect */}
       <HoverImage style={{maxHeight:'300px', width:'100%', objectFit:'contain', marginBottom:'15px', transition:'transform 2s ease-in-out'}} src={product.assets[0].url} hoverSrc={product.assets[1].url} title={product.name} alt=""/>

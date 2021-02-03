@@ -1,6 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
-// import HoverImage from "react-hover-image";
 import styled from 'styled-components/macro';
 import Product from './Product/Product';
 import shopbg4 from './Assets/shopbg4.png';
@@ -18,28 +16,44 @@ const ShopHome = styled.div`
 
 const ShopImage = styled.img`
     width: 100%;
-    ${'' /* height: 100vh; */}
     z-index: -1;
-    margin-bottom: -550px;
+    margin-bottom: -700px;
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)); 
 
+    @media screen and (max-width: 1300px) {
+      margin-top: 70px;
+      margin-bottom: -470px;
+    }
+
     @media screen and (max-width: 1100px) {
-        margin-bottom: -350px;
+      margin-top: 70px;
+      margin-bottom: -420px;
+    }
+
+    @media screen and (max-width: 900px) {
+        margin-bottom: -220px;
     }
 
     @media screen and (max-width: 768px) {
-        margin-bottom: -150px;
+        margin-bottom: -220px;
+    }
+
+    @media screen and (max-width: 500px) {
+        margin-bottom: -190px;
+    }
+
+    @media screen and (max-width: 350px) {
+        margin-bottom: -70px;
     }
 `;
 
 const ShopRows = styled.section`
     display: grid;
-    row-gap: 8em;
+    row-gap: 3em;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     z-index: 1;
-    margin-left: 5px;
-    margin-right: 5px;
-    ${'' /* margin-bottom: 5rem; */}
+    margin-left: -2px;
+    margin-right: 15px;
 
     @media screen and (max-width: 1400px) {
         grid-template-columns: 1fr 1fr 1fr;
@@ -60,8 +74,6 @@ const ShopRowSub = styled.section`
 
 
 const ProductsHome = ({ products, onAddToCart }) => {
-  const history = useHistory();
-  const singlePorductRedirect = (prodId) => history.push(`/adiah/shop/${prodId}`);
   if (!products.length) return <p>Loading...</p>;
   console.log(products)
 
