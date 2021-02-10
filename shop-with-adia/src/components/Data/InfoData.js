@@ -10,7 +10,7 @@ import eyespye from '../About/assets/eyespy.jpg';
 
 export const InfoData = [
     {
-        heading: 'Beauty',
+        heading: 'Fragrances',
         paragraphOne: ' "You smell so good." ',
         paragraphTwo: ' That is one of my favorite compliments. Ive had people turn around to flag me down just to ask me what I was wearing. Fragrance should be the topper to every outfit. Im going to share some of my favorite fragrances with you that vary from low to high end.',
         buttonLabel: 'Shop Fragrances',
