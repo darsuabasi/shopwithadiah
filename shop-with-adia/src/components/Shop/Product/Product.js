@@ -1,7 +1,8 @@
 import React from "react";
 import styled, { css } from 'styled-components/macro';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import HoverImage from "react-hover-image";
+import ProductInfo from '../ProductInfo/ProductInfo'
 
 
 const ProductMain = styled.div`
@@ -12,7 +13,7 @@ const ProductMain = styled.div`
     margin: 10px;
     padding: 20px;
     width: 100%;
-    max-height: 400px;
+    max-height: 600px;
     min-width: 100px;
     background-color: white;
     z-index: 1;
@@ -20,12 +21,11 @@ const ProductMain = styled.div`
 `;
 
 const ProductImage = styled.img`
-    height: 300px;
+    height: 300px !important;
     width: 100%;
     object-fit: cover;
     position: absolute;
     margin-bottom: 15px;
-    ${'' /* padding-top: 15px; */}
 
     &:hover {
       transition:transform 2s ease;
@@ -34,7 +34,21 @@ const ProductImage = styled.img`
     }
 `;
 
-const ProductInfo = styled.div`
+const ProductName = styled.p `
+  text-align: start;
+  justify-content: start;
+  border: 1px solid #000;
+  width: 300px;
+  height: 65px;
+  position: relative;
+
+  @media screen and (max-width: 350px) {
+        width: 200px;
+    }
+
+`
+
+const ProductInfoDiv = styled.div`
     height: 100px;
     font-size: 20px;
     margin-bottom: 15px;
@@ -54,6 +68,8 @@ const ProdButton = styled(Link)`
     font-weight: 700;
     font-size: 16px;
     text-decoration: none;
+    ${'' /* width: 100px;
+    height: 100px; */}
 
     &:hover {
         transform: translateY(-2px);
@@ -71,25 +87,28 @@ const ButtonDiv = styled.div`
 
 
 
-const Product = ({ product, onAddToCart }) => {
-
-  // const handleAddToCart = () => onAddToCart(product.id, 1);
+const Product = ({ permalink, product, onAddToCart }) => {
+  const history = useHistory();
+  // const singlePorductRedirect = (prodId) => history.push(`/adiah/shop/${product.id}`);
 
   return (
     <ProductMain key={product.id} id={product.id} title={product.id}>
-      <ProductInfo>
-        <p>{product.name}</p>
+      <ProductInfoDiv>
+        <ProductName>{product.name}</ProductName>
         <ProductPrice>
           <small>$</small>
           <strong>{product.price.formatted}</strong>
         </ProductPrice>
-        <h5 dangerouslySetInnerHTML={{ __html: product.description }}></h5>
-      </ProductInfo>
+        {/* <h5 dangerouslySetInnerHTML={{ __html: product.description }}></h5> */}
+      </ProductInfoDiv>
       {/* add 2nd image for hover effect */}
       <HoverImage style={{maxHeight:'300px', width:'100%', objectFit:'contain', marginBottom:'15px', transition:'transform 2s ease-in-out'}} src={product.assets[0].url} hoverSrc={product.assets[1].url} title={product.name} alt=""/>
       
       <ButtonDiv>
-        <ProdButton title={product.name} to={`/adiah/shop/products/${product.name}`}>View More</ProdButton>
+        <ProdButton key={product.permalink} id={product.id} title={product.name} onClick={() => history.push(`/adiah/shop/products/${permalink}`)}>
+          {/* <ProductInfo />  */}
+          View More
+        </ProdButton>
         <ProdButton onClick={() => onAddToCart(product.id, 1)}> Add to Cart </ProdButton>
       </ButtonDiv>
 

@@ -40,12 +40,12 @@ export const exploreData = [
         alt: 'favorites'
     },
 
-    {
-        title: 'DemoTitle',
-        price: '$40',
-        image: wifWine3, 
-        alt: 'favorites'
-    },
+    // {
+    //     title: 'DemoTitle',
+    //     price: '$40',
+    //     image: wifWine3, 
+    //     alt: 'favorites'
+    // },
 
     {
         title: 'DemoTitle',
@@ -117,12 +117,12 @@ export const exploreData = [
         alt: 'favorites'
     },
 
-    {
-        title: 'DemoTitle',
-        price: '$40',
-        image: wifWine2, 
-        alt: 'favorites'
-    },
+    // {
+    //     title: 'DemoTitle',
+    //     price: '$40',
+    //     image: wifWine2, 
+    //     alt: 'favorites'
+    // },
 
     // {
     //     title: 'DemoTitle',

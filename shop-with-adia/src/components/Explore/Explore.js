@@ -15,23 +15,39 @@ const ExploreMain = styled.section`
     max-height: 11000px;
     position: relative;
     overflow: hidden;
+    padding-top: 4.8rem;
+    display: grid;
+    grid-template-column: 1fr 1fr;
+    background: #f8d7c4;
+
+    @media screen and (max-width: 1000px) {
+        grid-template-columns: 1fr;
+        overflow-y: scroll !important;
+    }
 `;
 
 const ExploreSliderWrapper =  styled.div `
-    width: 50%;
-    ${'' /* height: 100%; */}
+    width: 40%;
+    height: 100%;
     display: flex;
+    float: right;
     justify-content: center;
     align-items: center; 
     overflow: hidden;
-    ${'' /* float: left; */}
-    ${'' /* position: relative */}
+
+    @media screen and (max-width: 1000px) {
+        width: 100%;
+    }
 `;
 
 const SliderSlide = styled.div`
     z-index: 1;
-    width: 50%;
+    width: 40%;
     height: 100%;
+
+    @media screen and (max-width: 1000px) {
+        width: 100%;
+    }
 `;
 
 const Slider = styled.div`
@@ -63,13 +79,16 @@ const SliderImages = styled.img`
     position: absolute; 
     top: 0;
     right: 0;
-    width: 50vw;
+    width: 40vw;
     height: 100vh;
-    object-fit: cover;
+    object-fit: stretch;
+
+    @media screen and (max-width: 1000px) {
+        width: 100vw;
+    }
 `;
 
 const SliderContent = styled.div`
-    ${'' /* position: relative; */}
     z-index: 10;
     display: flex;
     flex-direction: column;
@@ -132,22 +151,26 @@ const NextArrow = styled(IoArrowForward)`
 `;
 
 const ExploreLeftDiv = styled.div `
-    width: 50%;
-    height: 100%;
-    ${'' /* top: 0; */}
-    ${'' /* left: 0; */}
-    background: #000;
+    width: 60%;
+    background: #f8d7c4;
+    height: 100vh;
+    float: left;
+
+    @media screen and (max-width: 1000px) {
+        width: 100%;
+        display: none;
+    }
 `
 const LeftDivSub = styled.div `
     width: 100%;
     height: 100%;
     justify-content: center;
-    align-items: center;
-    align-self: center;
-    background: #000;
-    padding: 20%;
-    ${'' /* background: darkgreen; */}
-    text-align: center
+    color: #fff;
+    padding: 10%;
+    padding-top: 25%;
+    background: #f8d7c4;
+    text-align: center;
+    border: dotted 8px #ffffff;
 `
 
 
@@ -178,7 +201,7 @@ const Explore = ({slides}) => {
         const nextSlide = () => {
             setCurrent(current => (current === length - 1 ? 0 : current + 1));
         }
-        timeout.current = setTimeout(nextSlide, 15000);
+        timeout.current = setTimeout(nextSlide, 4000);
 
         return function() {
             if(timeout.current) {
@@ -240,20 +263,22 @@ const Explore = ({slides}) => {
 
             <ExploreLeftDiv> 
                 <LeftDivSub>
-                    <SlideInRight> 
-                        <h1 style={{fontSize: '55px', color: '#fff'}}> Explore my favorite</h1>
-                    </SlideInRight>
+                    {/* <Bounce>  */}
+                        <h1 style={{fontSize: '55px'}}> I took some of my favorite</h1>
+                    {/* </Bounce> */}
                     {/* <SlideInLeft>  */}
-                        <h3 style={{fontSize: '45px', color: '#fff'}}> skin care products</h3>
+                        <h3 style={{fontSize: '42px'}}> products and turned </h3>
+                        {/* <h3 style={{fontSize: '45px', color: '#fff'}}> skin care products</h3> */}
                     {/* </SlideInLeft> */}
                     {/* <SlideInRight>  */}
-                        <h1 style={{fontSize: '40px', color: '#fff'}}> fashion pieces</h1>
+                        <h1 style={{fontSize: '38px'}}> them into ads</h1>
+                        {/* <h1 style={{fontSize: '40px', color: '#fff'}}> fashion pieces</h1> */}
                     {/* </SlideInRight> */}
                     {/* <SlideInLeft>  */}
-                        <h3 style={{fontSize: '35px', color: '#fff'}}> fragrances</h3>
+                        {/* <h3 style={{fontSize: '34px'}}> into ads</h3> */}
                     {/* </SlideInLeft> */}
                     {/* <SlideInRight>  */}
-                        <h1 style={{fontSize: '30px', color: '#fff'}}> wines </h1>
+                        {/* <h1 style={{fontSize: '30px'}}> ads </h1> */}
                     {/* </SlideInRight> */}
 
 
@@ -264,6 +289,8 @@ const Explore = ({slides}) => {
                     {/* <TypingHeader changingHeaders={typingData}/> */}
                 </LeftDivSub>
             </ExploreLeftDiv>
+
+            
 
         </ExploreMain>
     )
