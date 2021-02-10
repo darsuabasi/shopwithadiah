@@ -20,7 +20,12 @@ const Nav = styled.nav`
     width: 100%;
     background: #000;
     text-align: center;
+    background: transparent;
     ${'' /* margin-top: 1%; */}
+
+    &.active {
+        background: #000000;
+    }
 
     @media screen and (max-width: 768px) {
         display: flex;
@@ -162,7 +167,7 @@ const Navbar = ({toggle, totalItems}) => {
     const location = useLocation();
 
     return (
-        <Nav class="sidebar" className="main_navbar_container">
+        <Nav class="sidebar" className="main_navbar_container active">
             <Logo to="/"> Adiah Logo </Logo>
 
             <MenuBars onClick={toggle}/>
@@ -176,9 +181,9 @@ const Navbar = ({toggle, totalItems}) => {
             </NavMenu>
 
             <NavButton> 
-                <Button to='/contact' primary="true">
+                {/* <Button to='/contact' primary="true">
                     Contact Me
-                </Button>
+                </Button> */}
                 {/* {location.pathname === '/adiah/shop/cart'  && ( */}
                     <BasketButton to='/adiah/shop/cart'>
                         <BasketDiv>
