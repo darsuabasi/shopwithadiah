@@ -1,10 +1,9 @@
-import lauraMercierBGRemoved from './../exploreAssets/lauraMercierBGRemoved.png';
-import mmJcProdShotThree from './../exploreAssets/mmJcProdShotThree.png';
+import lauraMercierBGRemoved from '../../Shop/exploreAssets/lauraMercierBGRemoved.png';
+import mmJcProdShotThree from '../../Shop/exploreAssets/mmJcProdShotThree.png';
 
 export const productData = [
-
     {
-        id: '01119',
+        prodId: '0',
         title: 'Mosel Scharzhofberger Riesling Auslese 2017 - Egon Müller, Vintage',
         price: 857.79, 
         image: 'https://s.tannico.it/media/catalog/product/cache/43/thumbnail/0dc2d03fe217f8c83829496872af24a0/m/u/muller42_2_1.jpg',
@@ -15,7 +14,7 @@ export const productData = [
     },
     
     {
-        id: '01112',
+        prodId: '1',
         title: 'Translucent Loose Setting Powder by LAURA MERCIER',
         price: 39.00, 
         image: lauraMercierBGRemoved,
@@ -26,7 +25,7 @@ export const productData = [
     }, 
 
     {
-        id: '01113',
+        prodId: '2',
         title: 'Air Jordan 1 Retro High OG Turbo Green by Nike',
         price: 835.00, 
         image: 'https://cdn-images.farfetch-contents.com/13/79/99/81/13799981_21663684_1000.jpg',
@@ -37,7 +36,7 @@ export const productData = [
     },
 
     {
-        id: '01111',
+        prodId: '3',
         title: 'Jazz Club by Maison Martin Margiela',
         price: 130.00, 
         image: mmJcProdShotThree,
@@ -48,7 +47,7 @@ export const productData = [
     },
 
     {
-        id: '01114',
+        prodId: '4',
         title: 'Glycolic Acid 7% Toning Solution by The Ordinary',
         price: 7.00, 
         image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ0OLEaR3sAETnPkSvFHP-13r9qzOPbp4fATSIu0pcPP4c3Qw2QiET5v5ZGfOEg-1-1uabqTGPmEPL0OvHTRSiROJ7JgZlz',
@@ -59,7 +58,7 @@ export const productData = [
     },
 
     {
-        id: '011191',
+        prodId: '5',
         title: 'Distressed high-rise straight-leg jeans by Maison Margiela',
         price: 690.00, 
         image: 'https://assetsprx.matchesfashion.com/img/product/1394384_1_zoom.jpg',
@@ -70,7 +69,7 @@ export const productData = [
     },
 
     {
-        id: '01115',
+        prodId: '6',
         title: '6.7 oz. Mon Beau Sapin Candle by Maison Francis Kurkdjian',
         price: 65.00, 
         image: 'https://images.neimanmarcus.com/ca/1/product_assets/C/5/2/Z/Y/NMC52ZY_az.jpg',
@@ -81,7 +80,7 @@ export const productData = [
     },
 
     {
-        id: '01116',
+        prodId: '7',
         title: 'Le grand Chiquito tote bag by Jacquemus',
         price: 718.00, 
         image: 'https://cdn-images.farfetch-contents.com/16/31/69/13/16316913_31263071_1000.jpg',
@@ -92,7 +91,7 @@ export const productData = [
     },
 
     {
-        id: '01118',
+        prodId: '8',
         title: 'Oud Satin mood Eau de Parfum by Maison Francis Kurkdjian',
         price: 565.00, 
         image: 'https://images.neimanmarcus.com/ca/7/product_assets/C/4/N/0/A/NMC4N0A_mz.jpg',
@@ -103,7 +102,7 @@ export const productData = [
     },
 
     {
-        id: '011193',
+        prodId: '9',
         title: 'Run Star Hike by Converse',
         price: 115.00, 
         image: 'https://images.asos-media.com/products/converse-run-star-hike-hi-black-ice-sneakers-in-black/22884736-1-black?$n_640w$&wid=634&fit=constrain' , 
@@ -114,7 +113,7 @@ export const productData = [
     },
 
     {
-        id: '01117',
+        prodId: '10',
         title: 'RELAX RIESLING, German',
         price: 10.00, 
         image: 'https://www.totalwine.com/dynamic/x490,sq/media/sys_master/twmmedia/h9f/h18/13443051880478.png',
@@ -125,7 +124,7 @@ export const productData = [
     },
 
     {
-        id: '0111983',
+        prodId: '11',
         title: 'Lip Sleeping Mask by LANEIGE',
         price: 22.00, 
         image: 'https://www.sephora.com/productimages/sku/s1966258-main-zoom.jpg?imwidth=1224',
@@ -136,7 +135,7 @@ export const productData = [
     },
 
     {
-       id: '0111446',
+        prodId: '12',
         title: 'The It Girl by Cecily von Ziegesar',
         price: 12.99, 
         image: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1344263385l/561403.jpg',
@@ -147,7 +146,7 @@ export const productData = [
     },
 
     {
-       id: '0111931',
+        prodId: '13',
         title: 'Teint Idole Ultra Long Wear Foundation by Lancôme',
         price: 47.00, 
         image: 'https://www.sephora.com/productimages/sku/s1896224-main-zoom.jpg?imwidth=1224',
@@ -158,7 +157,7 @@ export const productData = [
     },
 
     {
-        id: '011193816',
+        prodId: '14',
         title: 'RUBY BERRIES 100 ML (3.4 FL. OZ) by ZARA',
         price: 19.90, 
         image: 'https://static.zara.net/photos///2021/V/2/1/p/0120/043/999/2/w/1440/0120043999_6_1_1.jpg?ts=1610619829241',
@@ -169,7 +168,7 @@ export const productData = [
     },
 
     {
-        id: '011190273',
+        prodId: '15',
         title: 'Stretch Curvy Mom Jean by American Eagle',
         price: 49.95, 
         image: 'https://s7d2.scene7.com/is/image/aeo/0436_2813_408_f?$pdp-m-opt$&fmt=webp',
@@ -180,7 +179,7 @@ export const productData = [
     },
 
     {
-        id: '0111910020',
+        prodId: '16',
         title: 'Bum Bum Cream vy Sol de Janeiro',
         price: 45.00, 
         image: 'https://www.sephora.com/productimages/sku/s1802412-main-zoom.jpg?imwidth=1224',
@@ -191,7 +190,7 @@ export const productData = [
     }, 
 
     {
-        id: '0111908362',
+        prodId: '17',
         title: 'Cotton Underwire Bra by ZARA',
         price: 29.90, 
         image: 'https://static.zara.net/photos///2021/V/0/1/p/5573/411/250/2/w/2880/5573411250_1_1_1.jpg?ts=1611101048685',
@@ -202,7 +201,7 @@ export const productData = [
     }, 
 
     {
-        id: '01119017384',
+        prodId: '18',
         title: 'Tobacco Vanille by TOM FORD',
         price: 650.00, 
         image: 'https://www.sephora.com/productimages/sku/s1764125-main-zoom.jpg?imwidth=1224',
@@ -213,7 +212,7 @@ export const productData = [
     }, 
 
     {
-        id: '01119118393',
+        prodId: '19',
         title: 'LOGO BUCKET HAT by LEVI',
         price: 25.00, 
         image: 'https://lsco.scene7.com/is/image/lsco/380250018-front-pdp-lse?fmt=jpeg&qlt=70,1&op_sharpen=0&resMode=sharp2&op_usm=0.8,1,10,0&fit=crop,0&wid=810&hei=1080',
@@ -224,18 +223,18 @@ export const productData = [
     }, 
 
     {
-        id: '01119001832',
+        prodId: '20',
         title: 'Dracaena Marginata | Dragon Tree via IKEA',
         price: 12.99, 
-        image: 'favorites',
-        imageTwo: '',
+        image: 'https://www.ikea.com/us/en/images/products/dracaena-marginata-potted-plant-dragon-tree-3-stem__67436_PE181279_S5.JPG?f=g',
+        imageTwo: 'https://www.ikea.com/us/en/images/products/dracaena-marginata-potted-plant-dragon-tree-3-stem__67436_PE181279_S5.JPG?f=g',
         imageThree: '',
         imageFour: '',
         imageFive: '',
     }, 
 
     {
-        id: '011191710002',
+        prodId: '21',
         title: 'Sportswear Marble EcoDown by Nike',
         price: 300.00, 
         image: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/330a5f3b-49cf-4ea1-9949-53c54e204967/sportswear-marble-ecodown-womens-parka-n4R0WP.jpg',
@@ -246,7 +245,7 @@ export const productData = [
     }, 
 
     {
-        id: '011191111938',
+        prodId: '22',
         title: 'Outfitter Luggage | 70L by Herschel',
         price: 139.00, 
         image: 'https://herschel.com/content/dam/herschel/products/10583/10583-04091-OS_02.jpg.sthumbnails.1000.1250.jpg',
@@ -257,7 +256,7 @@ export const productData = [
     }, 
 
     {
-        id: '0111910941571',
+        prodId: '23',
         title: 'LIBRE Eau de Parfum Intense by Yves Saint Laurent',
         price: 132.00, 
         image: 'https://www.sephora.com/productimages/sku/s2371896-main-zoom.jpg?imwidth=1224',
@@ -268,7 +267,7 @@ export const productData = [
     }, 
 
     {
-        id: '011190992483',
+        prodId: '24',
         title: 'La nuit Trésor Eau de Parfum by LANCÔME',
         price: 126.00, 
         image: 'https://www.lancome-usa.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-lancome-us-master-catalog/default/dwb059b8f5/Products/fragpackshots/TresorLaNuit_1000x1000_3.4oz.jpg?sw=650&sh=650&sm=fit&sfrm=png&q=70',
@@ -279,7 +278,7 @@ export const productData = [
     }, 
 
     {
-        id: '01119777339',
+        prodId: '25',
         title: 'Womens Metallic 1502443 Premiere Bracelet Watch: BOSS by Hugo Boss',
         price: 441.00, 
         image: 'https://cdna.lystit.com/1040/1300/n/photos/asos/c580a578/hugo-boss-Gold-1502443-Premiere-Bracelet-Watch.jpeg',
@@ -290,7 +289,7 @@ export const productData = [
     }, 
 
     {
-        id: '011196392172',
+        prodId: '26',
         title: 'Ultra Repair BarriAIR Cream by First Aid Beauty',
         price: 30.00, 
         image: 'https://www.sephora.com/productimages/sku/s2315984-main-zoom.jpg?imwidth=1224',
@@ -301,7 +300,7 @@ export const productData = [
     }, 
 
     {
-        id: '011191019339',
+        prodId: '27',
         title: 'Criminal Minds: The Complete Series via Barnes & Noble',
         price: 199.99, 
         image: 'https://images-na.ssl-images-amazon.com/images/I/91NcLsncwKL._SY679_.jpg',
@@ -312,7 +311,7 @@ export const productData = [
     }, 
 
     {
-        id: '011191119383',
+        prodId: '28',
         title: 'Gloss Bomb Universal Lip Luminizer: FENTY BEAUTY by Rihanna',
         price: 19.00, 
         image: 'https://www.sephora.com/productimages/sku/s2327245-main-zoom.jpg?imwidth=1224',
@@ -323,7 +322,7 @@ export const productData = [
     },
 
     {
-        id: '0111993749',
+        prodId: '29',
         title: 'Dracaena Massangeana | Dom plant via IKEA',
         price: 24.99, 
         image: 'https://www.ikea.com/us/en/images/products/dracaena-massangeana-potted-plant-dom-plant-3-stem__0098047_PE238948_S5.JPG?f=xl',
@@ -334,7 +333,7 @@ export const productData = [
     },
 
     {
-        id: '01119000183',
+        prodId: '30',
         title: 'Short pink and white viscose dress by BALMAIN',
         price: 4795.00, 
         image: 'https://www.balmain.com/12/12548243HB_14_f.jpg',
@@ -345,7 +344,7 @@ export const productData = [
     },
 
     {
-        id: '01119210215',
+        prodId: '31',
         title: 'Large 3-in-1 Nano Ionic Facial Steamer by NanoSteamer',
         price: 49.95, 
         image: 'https://images-na.ssl-images-amazon.com/images/I/712XJoEzzVL._SL1500_.jpg',
