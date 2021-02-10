@@ -4,6 +4,8 @@ import skincare from '../../infoDataAssets/skincare-infodata.jpg';
 import makeup from '../../infoDataAssets/makeup-infodata.jpg';
 import wine from '../../infoDataAssets/wine-infodata.jpg';
 import fashion from '../../infoDataAssets/fashion-infodata.jpg';
+import eyespye from '../About/assets/eyespy.jpg';
+// import illmuse from '../About/assets/illmuse.png';
 
 
 export const InfoData = [
@@ -75,5 +77,17 @@ export const InfoDataSix = [
         image: fashion,
         reverse: true,
         delay: 300,
+    }
+]
+
+export const InfoDataMain = [
+    {
+        heading: 'With love, Adiah',
+        paragraphOne: ' ah-dyah: first born daughter ',
+        paragraphTwo: 'I wanted to create a project that test my dev skills but also allow people to get to know a little bit more about me.',
+        buttonLabel: 'Explore',
+        image: eyespye,
+        reverse: false,
+        delay: 100,
     }
 ]

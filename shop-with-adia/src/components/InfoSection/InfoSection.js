@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
-import { InfoData, InfoDataTwo, InfoDataThree, InfoDataFour, InfoDataFive, InfoDataSix } from '../Data/InfoData';
+import { InfoData, InfoDataMain, InfoDataTwo, InfoDataThree, InfoDataFour, InfoDataFive, InfoDataSix } from '../Data/InfoData';
 
 const Section = styled.section `
     width: 100%;
@@ -123,6 +123,23 @@ const InfoSection = ({heading, paragraphOne, paragraphTwo, buttonLabel, reverse,
     return (
         <Section>
 
+            <ContainerTwo>
+                {InfoDataMain.map((item, index) => (
+                    <>
+                        <ColumnLeft>
+                            <h1> {item.heading} </h1>
+                            <p> {item.paragraphOne} </p>
+                            <p> {item.paragraphTwo} </p>
+                            <Button style={{zIndex:'10'}} primary="true" to="/adiah/explore"> {item.buttonLabel} </Button>
+                        </ColumnLeft>
+
+                        <ColumnRight>
+                            <img style={{opacity:'0.5'}} src={item.image} alt="faves"/>
+                        </ColumnRight>
+                    </>
+                ))}
+            </ContainerTwo>
+
             <Container>
                 {InfoDataFive.map((item, index) => (
                     <>
@@ -130,7 +147,7 @@ const InfoSection = ({heading, paragraphOne, paragraphTwo, buttonLabel, reverse,
                             <h1> {item.heading} </h1>
                             <p> {item.paragraphOne} </p>
                             <p> {item.paragraphTwo} </p>
-                            <Button primary="true" to="/adiah/shop"> {item.buttonLabel} </Button>
+                            <Button style={{zIndex:'10'}} primary="true" to="/adiah/shop"> {item.buttonLabel} </Button>
                         </ColumnLeft>
 
                         <ColumnRight reverse={item.reverse}>

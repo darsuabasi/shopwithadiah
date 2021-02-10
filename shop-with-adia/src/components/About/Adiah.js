@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import InfoSection from '../InfoSection/InfoSection';
 import { InfoData } from './../Data/InfoData';
-import eyespye from './assets/eyespy.jpg';
-import illmuse from './assets/illmuse.png';
+// import eyespye from './assets/eyespy.jpg';
+// import illmuse from './assets/illmuse.png';
 import saweetie from './assets/saweetie.jpg';
-import montree from './assets/montree.jpg';
-import kisses from './assets/kisses.heic';
+// import montree from './assets/montree.jpg';
+// import kisses from './assets/kisses.heic';
 
 
 
