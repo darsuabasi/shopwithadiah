@@ -184,6 +184,7 @@ const EmptyCartBtn  = styled(Link) `
     font-size: ${({ big }) => (big ? '20px' : '14px')}; 
 `
 
+
 const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
     const handleEmptyCart = () => onEmptyCart();
 
@@ -217,10 +218,10 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
 
                     <ActionBtnDiv>
                         <EmptyDiv> 
-                            <EmptyCartBtn primary={true} big={true} onClick={handleEmptyCart}> Empty Cart </EmptyCartBtn>
+                            <EmptyCartBtn primary='true' onClick={handleEmptyCart}> Empty Cart </EmptyCartBtn>
                         </EmptyDiv>
                         <EmptyDivTwo> 
-                            <EmptyCartBtn primary={true} big={true}  to="/adiah/shop/checkout"> Checkout </EmptyCartBtn>
+                            <EmptyCartBtn primary='true' to="/adiah/shop/checkout"> Checkout </EmptyCartBtn>
                         </EmptyDivTwo>
                     </ActionBtnDiv>
 
