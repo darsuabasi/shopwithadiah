@@ -41,6 +41,7 @@ const ProductName = styled.p `
   width: 300px;
   height: 65px;
   position: relative;
+  padding-left: 5%;
 
   @media screen and (max-width: 350px) {
         width: 200px;

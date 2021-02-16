@@ -6,7 +6,7 @@ import { InfoData, InfoDataMain, InfoDataTwo, InfoDataThree, InfoDataFour, InfoD
 const Section = styled.section `
     width: 100%;
     height: 100%;
-    padding: 4rem 0rem;
+    padding-top: 4rem;
     background:#f8d7c4;
 `;
 
@@ -33,7 +33,8 @@ const Container = styled.div `
     width: 100%;
     ${'' /* grid-template-rows: 800px; */}
 
-    @media screen and (max-width: 760px) {
+    @media screen and (max-width: 500px) {
+        display: grid;
         grid-template-columns: 1fr;
     }
 `;
@@ -42,10 +43,8 @@ const ColumnLeft = styled.div `
     ${'' /* display: flex;
     flex-direction: column;
     order: ${({reverse}) => (reverse ? '2' : '1')} */}
-
-
     justify-content: center;
-    align-itms: center;
+    align-items: center;
     line-height: 1.4;
     padding: 1rem 2rem;
     display: flex;
@@ -56,12 +55,37 @@ const ColumnLeft = styled.div `
 
     h1 {
         font-size: clamp(1.5rem, 6vw, 2rem);
-        margin-bottom: 1rem
+        margin-bottom: 1rem;
+        z-index: 100;
     }
 
     p {
         margin-bottom: 2rem; 
-        font-size: clamp(1rem, 4vw, 22px)
+        font-size: clamp(1rem, 4vw, 22px);
+        z-index: 100;
+    }
+
+    @media screen and (max-width: 1000px) {
+        h1 {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+        margin-bottom: 1rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        z-index: 100;
+    }
+
+    p {
+        margin-bottom: 2rem; 
+        font-size: clamp(1rem, 4vw, 22px);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-right: 5%;
+        padding-left: 5%;
+        z-index: 100;
+    }
+        
     }
 `;
 
@@ -86,14 +110,18 @@ const ColumnRight = styled.div `
 
     img {
         width: 100%;
-        height: 622px;
-        object-fit: cover;
+        height: 600px;
+        object-fit: stretch;
         border: dotted 8px #ffffff;
     }
 
-    @media screen and (max-width: 768px) {
-        width: 90%;
-        height: 90%;
+    @media screen and (max-width: 1000px) {
+        img {
+            width: 100%;
+            height: 700px;
+            object-fit: cover;
+            border: dotted 8px #ffffff;
+        }
     }
 `;
 
@@ -113,7 +141,8 @@ const ContainerTwo = styled.div `
     width: 100%;
     ${'' /* grid-template-rows: 800px; */}
 
-    @media screen and (max-width: 760px) {
+    @media screen and (max-width: 1000px) {
+        display: grid;
         grid-template-columns: 1fr;
     }
 `;
