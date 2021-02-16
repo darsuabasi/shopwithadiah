@@ -82,9 +82,9 @@ export const InfoDataSix = [
 
 export const InfoDataMain = [
     {
-        heading: 'With love, Adiah',
+        heading: 'With Love, Adiah',
         paragraphOne: ' ah-dyah: first born daughter ',
-        paragraphTwo: 'I wanted to create a project that test my dev skills but also allow people to get to know a little bit more about me.',
+        paragraphTwo: 'I wanted to create a project that would test my skills as a developer but also make it a bit more personal. I love working on things that inspire me and for this particular project, it was beauty.',
         buttonLabel: 'Explore',
         image: eyespye,
         reverse: false,
