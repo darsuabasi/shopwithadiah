@@ -1,30 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useParams } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from './components/Navbar/Navbar';
 import Landing from './components/Landing/Landing';
+import Adiah from './components/About/Adiah';
 import Explore from './components/Explore/Explore'
 import GlobalStyle from './GlobalStyle/globalStyle';
 import ExploreData from './components/Data/ExploreData';
 // import Dropdown from './components/Dropdown/Dropdown';
 import InfoSection from './components/InfoSection/InfoSection';
 import { InfoData } from './components/Data/InfoData';
-import { productData } from './components/Shop/Data/ProductData';
+import { productData } from './components/ShopOld/Data/ProductData';
 import TypingHeader from './components/Explore/TypingHeader';
 import { typingData } from './components/Data/TypingData';
 // import Shop from './components/Shop/Shop.js';
 // import Cart from './components/Shop/ShopParts/Cart';
 
-import ProductsHome from './components/ProductsHome/ProductsHome';
+import Shop from './components/Shop/Shop';
 import Commerce from '@chec/commerce.js';
 import Cart from './components/Cart/Cart';
 import CartItem from './components/Cart/CartItem/CartItem';
 import Checkout from './components/CheckoutForm/Checkout/Checkout';
-import SingleProductDisplay from './components/Shop/ShopParts/SingleProductDisplay';
-// import { commerce } from './lib/commerce'
-
-const commerce = new Commerce(
-  'pk_test_2254642a04a3be9d806eaf9f793dadd08058c50fa1016'
-);
+import ProductInfo from './components/Shop/ProductInfo/ProductInfo';
+// import SingleProductDisplay from './components/Shop/ShopParts/SingleProductDisplay';
+import commerce from './lib/commerce';
 
 
 const App = () => {
@@ -33,12 +31,8 @@ const App = () => {
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
+  // const [permalink, setPermalink] = useState([]);
 
-  // const fetchProducts = async () => {
-  //   const { data } = await commerce.products.list();
-  //   commerce.products.list().then((product) => console.log(product));
-  //   setProducts(data);
-  // };
 
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
@@ -46,7 +40,8 @@ const App = () => {
   };
 
   const fetchCart = async () => {
-    setCart(await commerce.cart.retrieve());
+    const cart = await commerce.cart.retrieve();
+    setCart(cart)
   };
 
   const handleAddToCart = async (productId, quantity) => {
@@ -89,9 +84,6 @@ const App = () => {
     fetchCart();
   }, []);
 
-  // console.log(cart)
-
-
   const toggle = () => {
     setIsOpen(!isOpen)
   }
@@ -103,55 +95,54 @@ const App = () => {
     <Router>
       <Switch>
         {/* <TypingHeader changingHeaders={typingData} /> */}
-        {/* <Route exact path="/">
+        <Route exact path="/">
           <Landing/>
-        </Route> */}
+        </Route>
 
         <div className="main_app_WLA">
           <GlobalStyle/>
           <Navbar toggle={toggle} totalItems={cart.total_items}/>
           {/* <Dropdown isOpen={isOpen} toggle={toggle} /> */}
             <Switch>
+
+              <Route exact path={"/adiah"}>
+                <Adiah {...InfoData}/>
+              </Route>
+              
+
               <Route exact path={"/adiah/explore"}>
                 <Explore slides={ExploreData} />
               </Route>
 
-              <Route exact path={"/adiah/explore"}>
-                <InfoSection {...InfoData} />
-              </Route>
 
               {/* <Route exact path={"/adiah/shop"}>
                 <Shop {...productData} />
               </Route> */}
 
               <Route exact path={"/adiah/shop"}>
-                <ProductsHome products={products} onAddToCart={handleAddToCart} handleUpdateCartQty />
+                <Shop products={products} onAddToCart={handleAddToCart} handleUpdateCartQty />
               </Route>
 
               <Route exact path={'/adiah/shop/cart'}>
                 <Cart cart={cart} onUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} onEmptyCart={handleEmptyCart}/>
               </Route>
 
-              {/* <Route path="/adiah/shop/checkout" exact>
+              <Route path="/adiah/shop/checkout" exact>
                 <Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />
-              </Route> */}
+              </Route>
 
               {/* <Route exact path={'/adiah/shop/cart/items'}>
                 <CartItem />
               </Route> */}
 
-              {/* <Route exact path={"/adiah/shop/:id"}>
-                <SingleProductDisplay {...productData} />
-              </Route> */}
-
-              <Route exact path={"/adiah/shop/:id"}>
-                <SingleProductDisplay products={products} /*onAddToCart={handleAddToCart} handleUpdateCartQty*/ />
+              <Route exact path={"/adiah/shop/:permalink"}>
+                <ProductInfo onAddToCart={handleAddToCart} handleUpdateCartQty />
               </Route>
               
               
 
               
-
+            
 
             </Switch>
         </div>
