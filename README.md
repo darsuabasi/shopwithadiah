@@ -33,6 +33,12 @@ Best viewed on Web [Beta Mode: We plan on continuing to build.]
 
 # Technical Milestones
 - Utilizing ecommerce.js to create a personailzed store with my own products and learning how to navigate its API in order to pull the information that was needed (Product list, price, images) 
-- Utilizing Stripe.js for the Checkout portion of the app 
+- Utilizing Stripe.js for the Checkout portion of the app
+- Creating the explore slider from scratch  
+
+# Design Milestones
+- Utilizing Canva, enhancement tools and image cutting tools to create product displays for some of my favorite products
+- Understanding of User Flow on e-commerce sites (What works/What doesn't)
+- Research on best UX/UI practices based on the type of site one is building 
 
 ## Deployment: Netlify
