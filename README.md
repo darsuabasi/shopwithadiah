@@ -1,5 +1,6 @@
 # With Love, Adiah
-## [Live Site](https://nowthatscap.netlify.app/ 'With Love, Adiah: Live Site')
+<!--  -->
+<!-- ## [Live Site](https://withloveadiah.netlify.app/ 'With Love, Adiah: Live Site') -->
 
 ### With Love, Adiah; a frontend e-commerce site inspired by my growth and knowledge around self love and care. The goal of this project was to be able to build on my skills as a Software Engineer, learn more about API's and what it takes to build an e-commerce site, especially at a time where it's become essential to a business' survival. 
 
@@ -41,4 +42,4 @@ Best viewed on Web [Beta Mode: We plan on continuing to build.]
 - Understanding of User Flow on e-commerce sites (What works/What doesn't)
 - Research on best UX/UI practices based on the type of site one is building 
 
-## Deployment: Netlify
+## Deployment: Coming Soon!
