@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom'; 
 import styled from 'styled-components/macro';
 import { GiShoppingCart } from 'react-icons/gi';
@@ -168,12 +168,26 @@ const ShoppingCart = styled(GiShoppingCart)`
     }
 `;
 
-const ProductInfo = ({ permalink, product, onAddToCart }) => {
-    // const { id } = useParams();
+const ProductInfo = ({ products, onAddToCart }) => {
+    const { productId } = useParams();
+    const [product, setProduct] = useState([]);
 
+  useEffect(() => {
+    // try {
+      const fetchSingleProduct = async (productId) => {
+      // commerce.products.retrieve('prod_7RqEv5xKOoZz4j').then((product) => console.log(product.name));
+      const product = await commerce.products.retrieve({productId});
+      setProduct(product);
+    // } catch(err) {
+    //   settProduct([]);
+    //   console.log(err.message);
+    // }
+  }
+  fetchSingleProduct();
+}, [])
 
-     const selectedProduct = () => {
-        // if (id === product.id)
+     const selectedProduct = products.map((singleProd, i) => {
+        if (productId === singleProd.id)
         return (
             <ProductWrapper key={product.id} id={product.id} title={product.id}>
                 <LeftDiv>   
@@ -219,12 +233,70 @@ const ProductInfo = ({ permalink, product, onAddToCart }) => {
                 </RightDiv>
             </ProductWrapper>
         )    
-     };
+     });
+     console.log(selectedProduct);
     
     return(
         <SingleProdMain>  
             {selectedProduct}
         </SingleProdMain>
+
+        // <SingleProdMain>  
+        //     <ProductWrapper> 
+        //         if (product.id === product.sku)
+        //         {products.map((prods) => {
+        //             return (  
+        //                 <div key={prods.id} id={prods.id} title={prods.title}>
+        //                     <LeftDiv>   
+        //                         <ImageOne src={prods.image}/>
+        //                         <ImageOne src={prods.imageTwo}/>
+        //                         <ImageOne src={prods.imageThree}/>
+        //                         <ImageOne src={prods.imageFour}/>
+        //                         <ImageOne src={prods.imageFive}/>
+        //                     </LeftDiv>
+
+        //                     <RightDiv>
+        //                         <PriceAndAddDiv>
+        //                             <PriceDiv>
+        //                                 <ProdPrice> ${prods.price} </ProdPrice>
+        //                             </PriceDiv>
+        //                             <AddDiv>
+        //                                 <AddBtn> Add to Cart </AddBtn>
+        //                             </AddDiv>
+        //                         </PriceAndAddDiv>
+
+        //                         <ProdNameDiv>
+        //                             <ProdName>
+        //                                 {prods.title}
+        //                             </ProdName>
+        //                         </ProdNameDiv>
+
+        //                         <ProdDetails>
+        //                             <Details> <h3> Product Details </h3> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+        //                             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+        //                             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        //                             </Details>
+        //                         </ProdDetails>
+
+        //                         <MyComments>
+        //                             <Specs> <h3> My Specs </h3> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+        //                             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+        //                             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+        //                             dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+        //                             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+        //                             mollit anim id est laborum.
+        //                             </Specs>
+        //                         </MyComments>
+
+        //                     </RightDiv>
+        //                 </div>  
+
+        //             )
+        //         })}
+            
+
+        //     </ProductWrapper>  
+        // </SingleProdMain>
         
     )
 }
