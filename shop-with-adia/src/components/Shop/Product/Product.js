@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled, { css } from 'styled-components/macro';
 import { Link, useHistory } from 'react-router-dom';
 import HoverImage from "react-hover-image";
-import ProductInfo from '../ProductInfo/ProductInfo'
+import ProductInfo from '../ProductInfo/ProductInfo';
+import commerce from '../../../lib/commerce';
+import { connect } from 'react-redux';
 
 
 const ProductMain = styled.div`
@@ -88,9 +90,26 @@ const ButtonDiv = styled.div`
 
 
 
-const Product = ({ permalink, product, onAddToCart }) => {
+const Product = ({ product, onAddToCart }) => {
   const history = useHistory();
-  // const singlePorductRedirect = (prodId) => history.push(`/adiah/shop/${product.id}`);
+//   const [product, setProduct] = useState([]);
+
+//   useEffect(() => {
+//     try {
+//       const fetchSingleProduct = async (productId) => {
+//       // commerce.products.retrieve('prod_7RqEv5xKOoZz4j').then((product) => console.log(product.name));
+//       const product = await commerce.products.retrieve(productId);
+//       setProduct(product);
+//     } catch (err) {
+//       settProduct([]);
+//       console.log(err.message);
+//     }
+//   }
+//   fetchSingleProduct();
+// }, [])
+
+    
+  
 
   return (
     <ProductMain key={product.id} id={product.id} title={product.id}>
@@ -106,8 +125,7 @@ const Product = ({ permalink, product, onAddToCart }) => {
       <HoverImage style={{maxHeight:'300px', width:'100%', objectFit:'contain', marginBottom:'15px', transition:'transform 2s ease-in-out'}} src={product.assets[0].url} hoverSrc={product.assets[1].url} title={product.name} alt=""/>
       
       <ButtonDiv>
-        <ProdButton key={product.permalink} id={product.id} title={product.name} onClick={() => history.push(`/adiah/shop/products/${permalink}`)}>
-          {/* <ProductInfo />  */}
+        <ProdButton key={product.id} id={product.id} title={product.name} onClick={() => history.push(`/adiah/shop/products/${product.id}`)}>
           View More
         </ProdButton>
         <ProdButton onClick={() => onAddToCart(product.id, 1)}> Add to Cart </ProdButton>
