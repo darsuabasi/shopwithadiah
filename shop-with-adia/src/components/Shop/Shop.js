@@ -74,7 +74,7 @@ const ShopRowSub = styled.section`
 `;
 
 
-const ProductsHome = ({ products, onAddToCart }) => {
+const ProductsHome = ({ products, onAddToCart, product }) => {
   if (!products.length) return <p>Loading...</p>;
   console.log(products)
 
@@ -86,8 +86,7 @@ const ProductsHome = ({ products, onAddToCart }) => {
         <ShopRows>
           {products.map((product) => (
             <ShopRowSub key={product.id}>
-              <Product product={product} onAddToCart={onAddToCart}/>
-              {/* <ProductInfo permalink={product.permalink} product={product} id={product.id} onAddToCart={onAddToCart}/> */}
+              <Product products={products} product={product} onAddToCart={onAddToCart}/>
             </ShopRowSub>
           ))}
         </ShopRows>
