@@ -28,43 +28,70 @@ import commerce from './lib/commerce';
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [products, setProducts] = useState([]);
+  const [product, setProduct] = useState([]);
+  const [allCategories, setAllCategories] = useState([]);
+  const [singleCategories, setSingleCategories] = useState([]);
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
-  // const [permalink, setPermalink] = useState([]);
 
 
   const fetchProducts = async () => {
+    // commerce.products.list().then((product) => console.log(product));
     const { data } = await commerce.products.list();
     setProducts(data);
   };
 
   const fetchCart = async () => {
+    // commerce.cart.retrieve().then((cart) => console.log(cart));
     const cart = await commerce.cart.retrieve();
-    setCart(cart)
+    setCart(cart);
   };
 
+  const fetchSingleProduct = async (productId) => {
+    // commerce.products.retrieve('prod_7RqEv5xKOoZz4j').then((product) => console.log(product.name));
+    const product = await commerce.products.retrieve(productId);
+    setProduct(product);
+  }
+
+  // const fetchCategories = async () => {
+  //   // commerce.categories.list().then((category) => console.log(category.name));
+  //   const categoryList = await commerce.categories.list()
+  //   setAllCategories(categoryList)
+  // }
+
+  // const fetchSingleCategory = async (id, data) => {
+  //   commerce.categories.retrieve('cat_7RqEv5xKOoZz4j').then((category) => console.log(category.name));
+  //   const categoryList = await commerce.categories.retrieve()
+  //   setAllCategories(categoryList)
+  // }
+
   const handleAddToCart = async (productId, quantity) => {
+    // commerce.cart.add('prod_R4OANwRqklvYL8', 5).then((response) => console.log(response));
     const item = await commerce.cart.add(productId, quantity);
     setCart(item.cart);
   };
 
   const handleUpdateCartQty = async (lineItemId, quantity) => {
+    // commerce.cart.update('item_7RyWOwmK5nEa2V', { quantity: 5 }).then(response => console.log(response));
     const response = await commerce.cart.update(lineItemId, { quantity });
     setCart(response.cart);
   };
 
   const handleRemoveFromCart = async (lineItemId) => {
+    // commerce.cart.remove('item_7RyWOwmK5nEa2V').then((response) => console.log(response));
     const response = await commerce.cart.remove(lineItemId);
     setCart(response.cart);
   };
 
   const handleEmptyCart = async () => {
+    // commerce.cart.empty().then((response) => console.log(response));
     const response = await commerce.cart.empty();
     setCart(response.cart);
   };
 
   const refreshCart = async () => {
+    // commerce.cart.refresh().then((cart) => console.log(cart));
     const newCart = await commerce.cart.refresh();
     setCart(newCart);
   };
@@ -82,13 +109,12 @@ const App = () => {
   useEffect(() => {
     fetchProducts();
     fetchCart();
+    fetchSingleProduct();
   }, []);
 
   const toggle = () => {
     setIsOpen(!isOpen)
   }
-
-
 
   return(
     <div className="shopwithAdia_app">
@@ -109,18 +135,12 @@ const App = () => {
                 <Adiah {...InfoData}/>
               </Route>
               
-
               <Route exact path={"/adiah/explore"}>
                 <Explore slides={ExploreData} />
               </Route>
 
-
-              {/* <Route exact path={"/adiah/shop"}>
-                <Shop {...productData} />
-              </Route> */}
-
               <Route exact path={"/adiah/shop"}>
-                <Shop products={products} onAddToCart={handleAddToCart} handleUpdateCartQty />
+                <Shop products={products} /*product={product}*/  onAddToCart={handleAddToCart} handleUpdateCartQty />
               </Route>
 
               <Route exact path={'/adiah/shop/cart'}>
@@ -131,19 +151,10 @@ const App = () => {
                 <Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />
               </Route>
 
-              {/* <Route exact path={'/adiah/shop/cart/items'}>
-                <CartItem />
-              </Route> */}
-
-              <Route exact path={"/adiah/shop/:permalink"}>
-                <ProductInfo onAddToCart={handleAddToCart} handleUpdateCartQty />
+              <Route path={"/adiah/shop/products/:productId"}>
+                <ProductInfo products={products} product={product} onAddToCart={handleAddToCart} handleUpdateCartQty />
               </Route>
               
-              
-
-              
-            
-
             </Switch>
         </div>
 
