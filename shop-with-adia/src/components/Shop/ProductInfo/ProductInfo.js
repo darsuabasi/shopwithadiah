@@ -286,21 +286,21 @@ const ProductInfo = ({ products, onAddToCart }) => {
 
                     <ProdDetails>
                         <Details> 
-                            <div> 
+                            <div style={{marginBottom: '0.5rem'}}> 
                                 {singleProd.description.replace(reg, '')}
                             </div>
                             <div> 
                                 Quantity Remaining: {singleProd.quantity}
                             </div>
                             <div> 
-                                Is this product sold out? {singleProd.conditionals.is_sold_out}
+                                {/* Is this product sold out? {singleProd.conditionals.is_sold_out} */}
                             </div>
                             <div> 
-                               Is this product active? {singleProd.conditionals.is_active}
+                               {/* Is this product active? {singleProd.conditionals.is_active} */}
                             </div>
                             <div> 
-                                SEO Title: {singleProd.seo.title}
-                                SEO Description: {singleProd.seo.description}
+                                {/* SEO Title: {singleProd.seo.title}
+                                SEO Description: {singleProd.seo.description} */}
                             </div>
 
                         </Details>
