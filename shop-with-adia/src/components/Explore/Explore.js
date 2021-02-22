@@ -165,7 +165,7 @@ const LeftDivSub = styled.div `
     width: 100%;
     height: 100%;
     justify-content: center;
-    color: #fff;
+    color: #000;
     padding: 10%;
     padding-top: 25%;
     background: #f8d7c4;
