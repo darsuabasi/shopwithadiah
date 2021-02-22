@@ -59,7 +59,8 @@ const PaymentForm = ({ checkoutToken, nextStep, backStep, shippingData, onCaptur
     <>
       <Review checkoutToken={checkoutToken} />
       <Divider />
-      <h6 variant="h6" style={{ margin: '20px 0' }}>Payment method</h6>
+      <h2 variant="h2" style={{ margin: '20px 0' }}>Payment method </h2>
+      <h4 variant="h4" style={{ margin: '20px 0' }}>*Note: Please enter numbers *42* repetitively till zip code is filled!</h4>
       <Elements stripe={stripePromise}>
 
 

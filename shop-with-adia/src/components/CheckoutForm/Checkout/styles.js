@@ -4,6 +4,7 @@ export default makeStyles((theme) => ({
   appBar: {
     position: 'relative',
   },
+  
   toolbar: theme.mixins.toolbar,
   layout: {
     marginTop: '5%',
@@ -40,7 +41,7 @@ export default makeStyles((theme) => ({
       color: "lightgreen"
     },
     "& $active": {
-      color: "pink"
+      color: "#f8d7c4"
     },
     "& $disabled": {
       color: "red"

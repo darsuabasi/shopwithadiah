@@ -14,12 +14,6 @@ const AddressFormMain = styled.div`
     max-width: 1400px;
 `;
 
-// .MuiStepIcon-root.MuiStepIcon-active {
-//     color: #f8d7c4;
-// }
-// .MuiStepIcon-root.MuiStepIcon-completed {
-//     color: #f8d7c4;
-// }
 
 // const InputLabel = styled.label`
    
