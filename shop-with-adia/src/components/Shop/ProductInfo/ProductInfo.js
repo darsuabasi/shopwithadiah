@@ -142,7 +142,8 @@ const ProdDetails = styled.div `
 const Details = styled.p `
     margin: 1rem;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    ${'' /* grid-template-rows: 1fr 1fr 1fr 1fr; */}
 `;
 
 
@@ -292,16 +293,16 @@ const ProductInfo = ({ products, onAddToCart }) => {
                             <div> 
                                 Quantity Remaining: {singleProd.quantity}
                             </div>
-                            <div> 
-                                {/* Is this product sold out? {singleProd.conditionals.is_sold_out} */}
-                            </div>
-                            <div> 
-                               {/* Is this product active? {singleProd.conditionals.is_active} */}
-                            </div>
-                            <div> 
-                                {/* SEO Title: {singleProd.seo.title}
-                                SEO Description: {singleProd.seo.description} */}
-                            </div>
+                            {/* <div> 
+                                Is this product sold out? {singleProd.conditionals.is_sold_out}
+                            </div> */}
+                            {/* <div> 
+                               Is this product active? {singleProd.conditionals.is_active}
+                            </div> */}
+                            {/* <div> 
+                                SEO Title: {singleProd.seo.title}
+                                SEO Description: {singleProd.seo.description}
+                            </div> */}
 
                         </Details>
                     </ProdDetails>
