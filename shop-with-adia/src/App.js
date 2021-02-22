@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useParams } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from './components/Navbar/Navbar';
 import Landing from './components/Landing/Landing';
@@ -7,11 +7,11 @@ import Explore from './components/Explore/Explore'
 import GlobalStyle from './GlobalStyle/globalStyle';
 import ExploreData from './components/Data/ExploreData';
 // import Dropdown from './components/Dropdown/Dropdown';
-import InfoSection from './components/InfoSection/InfoSection';
+// import InfoSection from './components/InfoSection/InfoSection';
 import { InfoData } from './components/Data/InfoData';
-import { productData } from './components/ShopOld/Data/ProductData';
-import TypingHeader from './components/Explore/TypingHeader';
-import { typingData } from './components/Data/TypingData';
+// import { productData } from './components/ShopOld/Data/ProductData';
+// import TypingHeader from './components/Explore/TypingHeader';
+// import { typingData } from './components/Data/TypingData';
 import Shop from './components/Shop/Shop';
 import Commerce from '@chec/commerce.js';
 import Cart from './components/Cart/Cart';
