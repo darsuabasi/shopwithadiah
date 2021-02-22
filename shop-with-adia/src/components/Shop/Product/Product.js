@@ -90,26 +90,8 @@ const ButtonDiv = styled.div`
 
 
 
-const Product = ({ product, onAddToCart }) => {
+const Product = ({ product, onAddToCart, handleFetchSingleProduct }) => {
   const history = useHistory();
-//   const [product, setProduct] = useState([]);
-
-//   useEffect(() => {
-//     try {
-//       const fetchSingleProduct = async (productId) => {
-//       // commerce.products.retrieve('prod_7RqEv5xKOoZz4j').then((product) => console.log(product.name));
-//       const product = await commerce.products.retrieve(productId);
-//       setProduct(product);
-//     } catch (err) {
-//       settProduct([]);
-//       console.log(err.message);
-//     }
-//   }
-//   fetchSingleProduct();
-// }, [])
-
-    
-  
 
   return (
     <ProductMain key={product.id} id={product.id} title={product.id}>

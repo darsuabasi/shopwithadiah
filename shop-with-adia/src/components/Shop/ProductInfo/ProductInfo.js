@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom'; 
+import { Link, useParams, useHistory } from 'react-router-dom'; 
 import styled from 'styled-components/macro';
 import { GiShoppingCart } from 'react-icons/gi';
 import commerce from '../../../lib/commerce';
@@ -8,10 +8,10 @@ import { connect } from 'react-redux';
 const SingleProdMain = styled.div`
     display: grid;
     align-items: center;
-    padding-top: 1rem;
     width: 100vw;
     background-color: white;
     z-index: 1;
+    overflow: hidden;
 `;
 
 const ProductWrapper =  styled.div `
@@ -23,25 +23,16 @@ const ProductWrapper =  styled.div `
 const LeftDiv = styled.div`
     float: left;
     width: 50vw;
+    height: 89vh;
     display: grid;
     grid-template-columns: 1fr;
-    overflow-y: scroll;
     border: 1px solid #000;
     justify-content: center;
     align-items: center;
     justify-items: center;
-    border-top: none;
     border-right-style: dotted 3px;
-    padding-top: 5rem
-`;
-
-const RightDiv = styled.div`
-    float: right;
-    width: 50vw;
-    height: 100vh;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    padding-top: 3.8rem;  
+    margin-top: 11vh;
+    overflow-y: scroll;
 `;
 
 const ImageOne = styled.img`
@@ -50,6 +41,16 @@ const ImageOne = styled.img`
     object-fit: contain;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+`;
+
+const RightDiv = styled.div`
+    float: right;
+    width: 50vw;
+    height: 89vh;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    border: 0.5px solid #000;
+    margin-top: 11vh;
 `;
 
 const PriceAndAddDiv = styled.div`
@@ -61,59 +62,19 @@ const PriceAndAddDiv = styled.div`
     height: 8vh;
 `;
 
-const ProdNameDiv = styled.div `
-    display: flex;
-    margin-top: -4rem;
-    height: 8rem;
-    border-bottom: 1px solid #000;
-
-
-    @media screen and (max-width: 1200px) {
-        height: 10rem;
-        margin-top: -1rem;
-    }
-
-    @media screen and (max-width: 1000px) {
-        height: 12rem;
-        margin-top: -1rem;
-    }
-
-    @media screen and (max-width: 678px) {
-        height: 15.5rem;
-        margin-top: -1rem;
-    }
-`;
-
-const ProdName = styled.p `
-    display: flex;
-    margin: 1rem;
-    font-size: 28px;
-    margin-top: 1.5rem;
-`;
-
-const ProdDetails = styled.div `
-    display: flex;
-    text-align: start;
-    border-bottom: 1px solid #000;
-`;
-
-const MyComments = styled.div `
-    display: flex;
-    text-align: start;
-`;
-
-const Details = styled.p `
-    margin: 1rem;
-`;
-
-const Specs = styled.p `
-    margin: 1rem;
-`;
-
 const PriceDiv = styled.div `
     display: flex;
     text-align: center;
     justify-content: center;
+`;
+
+const ProdPrice = styled.p`
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 `;
 
 const AddDiv = styled.div `
@@ -141,14 +102,114 @@ const AddBtn = styled(Link)`
     }
 `;
 
-const ProdPrice = styled.h2`
+// -----------------
+
+const ProdNameDiv = styled.div `
     display: flex;
+    margin-top: -1rem;
+    height: 5rem;
+    border-bottom: 1px solid #000;
+
+    @media screen and (max-width: 1200px) {
+        height: 10rem;
+        margin-top: -1rem;
+    }
+
+    @media screen and (max-width: 1000px) {
+        height: 12rem;
+        margin-top: -1rem;
+    }
+
+    @media screen and (max-width: 678px) {
+        height: 15.5rem;
+        margin-top: -1rem;
+    }
+`;
+
+const ProdName = styled.p `
+    display: flex;
+    margin: 1rem;
+    font-size: 28px;
+`;
+
+const ProdDetails = styled.div `
+    display: flex;
+    text-align: start;
+    border-bottom: 1px solid #000;
+    height: 100%;
+`;
+
+const Details = styled.p `
+    margin: 1rem;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+`;
+
+
+const ProdExtra = styled.div `
+    display: grid;
+    grid-template-columns: 1fr;
+    border-bottom: 1px solid #000;
+    width: 100%;
+`;
+
+const CategoryTitle = styled.div `
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding-left: 1.5%;
+    padding-bottom: 1.5%;
+    padding-top: 1.5%;
+`;
+
+const RelatedProdContainer = styled.div `
+    display: grid;
+    grid-template-colums: 1fr 1fr 1fr;
+`;
+
+const RelatedProdSection = styled.div `
+    display: grid;
+    grid-template-columns: 1fr; 
+    height: 100%;
+    width: 200px;
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+`;
+
+const RelatedProdDetails = styled.div `
+    display: grid;
+    grid-template-columns: 1fr; 
     text-align: center;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    align-self: center;
+    padding-left: 1.5%;
 `;
+
+const RPImage = styled.img`
+    height: 190px;
+    width: 150px;
+    cursor: pointer;
+`
+
+// ---------------------------------------
+
+
+
+const MyComments = styled.div `
+    display: flex;
+    text-align: start;
+`;
+
+
+const Specs = styled.p `
+    margin: 1rem;
+`;
+
+
+
+
+
 
 const ShoppingCart = styled(GiShoppingCart)`
     height: 1.5rem;
@@ -168,136 +229,115 @@ const ShoppingCart = styled(GiShoppingCart)`
     }
 `;
 
+
 const ProductInfo = ({ products, onAddToCart }) => {
     const { productId } = useParams();
     const [product, setProduct] = useState([]);
+    const reg = /(<([^>]+)>)/ig;
+    const history = useHistory();
 
-  useEffect(() => {
-    // try {
-      const fetchSingleProduct = async (productId) => {
-      // commerce.products.retrieve('prod_7RqEv5xKOoZz4j').then((product) => console.log(product.name));
-      const product = await commerce.products.retrieve({productId});
-      setProduct(product);
-    // } catch(err) {
-    //   settProduct([]);
-    //   console.log(err.message);
+    // const handleSoldOut = () => {
+    //     if(singleProd.conditionals.is_sold_out === true) {
+    //         return "This product is sold out."
+    //         } else {
+    //             return "This product is still in stock."
+    //         }
+    //     }
+
+    // const handleIsActive = () => {
+    // if(singleProd.conditionals.is_active === true) {
+    //     return "This product no longer active.")
+    //     } else {
+    //         return "This product is still active."
+    //     }
     // }
-  }
-  fetchSingleProduct();
-}, [])
 
-     const selectedProduct = products.map((singleProd, i) => {
+
+     const selectedProduct = products.map((singleProd, media, seo, assets, conditionals, related_products, i) => {
+         
+
         if (productId === singleProd.id)
+
         return (
-            <ProductWrapper key={product.id} id={product.id} title={product.id}>
+            <ProductWrapper key={singleProd.id} id={singleProd.id}>
                 <LeftDiv>   
-                    <ImageOne src={product.image}/>
-                    <ImageOne src={product.imageTwo}/>
-                    <ImageOne src={product.imageThree}/>
-                    <ImageOne src={product.imageFour}/>
-                    <ImageOne src={product.imageFive}/>
+                    <ImageOne src={singleProd.assets[0].url}/>
+                    <ImageOne src={singleProd.assets[1].url}/>
+                    <ImageOne src={singleProd.assets[2].url}/>
+                    <ImageOne src={singleProd.assets[3].url}/>
+                    <ImageOne src={singleProd.assets[4].url}/>
                 </LeftDiv>
 
-                <RightDiv>
+                <RightDiv key={singleProd.id}>
                     <PriceAndAddDiv>
                         <PriceDiv>
-                            <ProdPrice> ${product.price} </ProdPrice>
+                            <ProdPrice> ${singleProd.price.formatted_with_code} </ProdPrice>
                         </PriceDiv>
                         <AddDiv>
-                            <AddBtn onClick={() => onAddToCart(product.id, 1)}> Add to Cart </AddBtn>
+                            <AddBtn onClick={() => onAddToCart(singleProd.id, 1)}> Add to Cart </AddBtn>
                         </AddDiv>
                     </PriceAndAddDiv>
 
                     <ProdNameDiv>
                         <ProdName>
-                            {product.title}
+                            {singleProd.name}
                         </ProdName>
                     </ProdNameDiv>
 
                     <ProdDetails>
-                        <Details> <h3> Product Details </h3> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <Details> 
+                            <div> 
+                                {singleProd.description.replace(reg, '')}
+                            </div>
+                            <div> 
+                                Quantity Remaining: {singleProd.quantity}
+                            </div>
+                            <div> 
+                                Is this product sold out? {singleProd.conditionals.is_sold_out}
+                            </div>
+                            <div> 
+                               Is this product active? {singleProd.conditionals.is_active}
+                            </div>
+                            <div> 
+                                SEO Title: {singleProd.seo.title}
+                                SEO Description: {singleProd.seo.description}
+                            </div>
+
                         </Details>
                     </ProdDetails>
 
-                    <MyComments>
-                        <Specs> <h3> My Specs </h3> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-                        mollit anim id est laborum.
-                        </Specs>
-                    </MyComments>
+                    <ProdExtra>
+                        <CategoryTitle>
+                            <h2>Other Related {singleProd.categories[0].name} </h2>
+                        </CategoryTitle>
+
+                        <RelatedProdContainer> 
+                            {singleProd.related_products.map((relatedProd, i) => (
+                                <RelatedProdSection>
+                                    <RelatedProdDetails key={relatedProd.id}> 
+                                        <p style={{cursor:"pointer"}} onClick={() => history.push(`/adiah/shop/products/${relatedProd.id}`)}> {relatedProd.name} </p>
+                                        <RPImage onClick={() => history.push(`/adiah/shop/products/${relatedProd.id}`)} src={relatedProd.media.source}/>
+                                        {relatedProd.price.formatted_with_code}
+                                    </RelatedProdDetails>
+                                </RelatedProdSection>
+                            ))}
+                        </RelatedProdContainer>
+                    </ProdExtra>
+
+                    {/* <MyComments>
+                    </MyComments> */}
                 </RightDiv>
             </ProductWrapper>
         )    
+        console.log(singleProd);
      });
      console.log(selectedProduct);
+
     
     return(
         <SingleProdMain>  
             {selectedProduct}
         </SingleProdMain>
-
-        // <SingleProdMain>  
-        //     <ProductWrapper> 
-        //         if (product.id === product.sku)
-        //         {products.map((prods) => {
-        //             return (  
-        //                 <div key={prods.id} id={prods.id} title={prods.title}>
-        //                     <LeftDiv>   
-        //                         <ImageOne src={prods.image}/>
-        //                         <ImageOne src={prods.imageTwo}/>
-        //                         <ImageOne src={prods.imageThree}/>
-        //                         <ImageOne src={prods.imageFour}/>
-        //                         <ImageOne src={prods.imageFive}/>
-        //                     </LeftDiv>
-
-        //                     <RightDiv>
-        //                         <PriceAndAddDiv>
-        //                             <PriceDiv>
-        //                                 <ProdPrice> ${prods.price} </ProdPrice>
-        //                             </PriceDiv>
-        //                             <AddDiv>
-        //                                 <AddBtn> Add to Cart </AddBtn>
-        //                             </AddDiv>
-        //                         </PriceAndAddDiv>
-
-        //                         <ProdNameDiv>
-        //                             <ProdName>
-        //                                 {prods.title}
-        //                             </ProdName>
-        //                         </ProdNameDiv>
-
-        //                         <ProdDetails>
-        //                             <Details> <h3> Product Details </h3> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-        //                             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-        //                             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        //                             </Details>
-        //                         </ProdDetails>
-
-        //                         <MyComments>
-        //                             <Specs> <h3> My Specs </h3> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-        //                             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-        //                             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-        //                             dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-        //                             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-        //                             mollit anim id est laborum.
-        //                             </Specs>
-        //                         </MyComments>
-
-        //                     </RightDiv>
-        //                 </div>  
-
-        //             )
-        //         })}
-            
-
-        //     </ProductWrapper>  
-        // </SingleProdMain>
-        
     )
 }
 

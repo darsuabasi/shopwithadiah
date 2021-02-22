@@ -10,7 +10,7 @@ const DropdownContainer = styled.div`
     position: fixed;
     z-index: 999;
     width: 100%;
-    height: 100%;
+    height: 50%;
     background: #cd853f;
     display: grid;
     align-items: center;
@@ -25,11 +25,10 @@ const Icon = styled.div `
     position: absolute;
     top: 1.2rem;
     right: 1.5rem;
-    background: transparent: 
+    background: transparent;
     cursor: pointer;
     font-size: 1rem;
     outline: none;
-
 `;
 
 const CloseIcon = styled(FaTimes) `

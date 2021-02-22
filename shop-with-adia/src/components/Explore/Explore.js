@@ -240,12 +240,7 @@ const Explore = ({slides}) => {
                                 <Slider>
                                     <SliderImages src={slide.image} alt={slide.alt} />
                                     <SliderContent>
-                                        {/* <h1> {slide.title} </h1> */}
-                                        {/* <p> {slide.price} </p> */}
-                                        {/* <Button css={`max-width: 160px`} to={slide.path} primary="true"> 
-                                            {slide.label} 
-                                            <Arrow/>
-                                        </Button> */}
+                                    
                                     </SliderContent>   
                                 </Slider>
                             )} 
