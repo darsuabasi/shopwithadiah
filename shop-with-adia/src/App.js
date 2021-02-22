@@ -12,9 +12,6 @@ import { InfoData } from './components/Data/InfoData';
 import { productData } from './components/ShopOld/Data/ProductData';
 import TypingHeader from './components/Explore/TypingHeader';
 import { typingData } from './components/Data/TypingData';
-// import Shop from './components/Shop/Shop.js';
-// import Cart from './components/Shop/ShopParts/Cart';
-
 import Shop from './components/Shop/Shop';
 import Commerce from '@chec/commerce.js';
 import Cart from './components/Cart/Cart';
@@ -48,10 +45,10 @@ const App = () => {
     setCart(cart);
   };
 
-  const fetchSingleProduct = async (productId) => {
+  const handleFetchSingleProduct = async (productId) => {
     // commerce.products.retrieve('prod_7RqEv5xKOoZz4j').then((product) => console.log(product.name));
-    const product = await commerce.products.retrieve(productId);
-    setProduct(product);
+    const { data } = await commerce.products.retrieve(productId);
+    setProduct(data);
   }
 
   // const fetchCategories = async () => {
@@ -109,7 +106,7 @@ const App = () => {
   useEffect(() => {
     fetchProducts();
     fetchCart();
-    fetchSingleProduct();
+    // fetchSingleProduct();
   }, []);
 
   const toggle = () => {
@@ -120,7 +117,7 @@ const App = () => {
     <div className="shopwithAdia_app">
     <Router>
       <Switch>
-        {/* <TypingHeader changingHeaders={typingData} /> */}
+  
         <Route exact path="/">
           <Landing/>
         </Route>
@@ -140,7 +137,7 @@ const App = () => {
               </Route>
 
               <Route exact path={"/adiah/shop"}>
-                <Shop products={products} /*product={product}*/  onAddToCart={handleAddToCart} handleUpdateCartQty />
+                <Shop products={products} /*product={product}*/  onAddToCart={handleAddToCart} handleUpdateCartQty handleFetchSingleProduct/>
               </Route>
 
               <Route exact path={'/adiah/shop/cart'}>
@@ -152,7 +149,7 @@ const App = () => {
               </Route>
 
               <Route path={"/adiah/shop/products/:productId"}>
-                <ProductInfo products={products} product={product} onAddToCart={handleAddToCart} handleUpdateCartQty />
+                <ProductInfo products={products} onAddToCart={handleAddToCart} handleUpdateCartQty handleFetchSingleProduct/>
               </Route>
               
             </Switch>
