@@ -1,7 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-env
 /node_modules
 assets
 exploreAssets
@@ -9,6 +8,7 @@ designedAssets
 infoDataAssets
 /.pnp
 .pnp.js
+env
 
 # testing
 /coverage
