@@ -165,7 +165,10 @@ const CategoryTitle = styled.div `
 
 const RelatedProdContainer = styled.div `
     display: grid;
-    grid-template-colums: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
 `;
 
 const RelatedProdSection = styled.div `
@@ -174,7 +177,9 @@ const RelatedProdSection = styled.div `
     height: 100%;
     width: 200px;
     border-right: 1px solid #000;
+    border-left: 1px solid #000;
     border-top: 1px solid #000;
+    margin-left: 8%;
 `;
 
 const RelatedProdDetails = styled.div `
@@ -189,7 +194,7 @@ const RelatedProdDetails = styled.div `
 
 const RPImage = styled.img`
     height: 190px;
-    width: 150px;
+    width: 100%;
     cursor: pointer;
 `
 
@@ -309,13 +314,13 @@ const ProductInfo = ({ products, onAddToCart }) => {
 
                     <ProdExtra>
                         <CategoryTitle>
-                            <h2>Other Related {singleProd.categories[0].name} </h2>
+                            <h2>Additional Products Related to {singleProd.categories[0].name} </h2>
                         </CategoryTitle>
 
                         <RelatedProdContainer> 
                             {singleProd.related_products.map((relatedProd, i) => (
                                 <RelatedProdSection>
-                                    <RelatedProdDetails key={relatedProd.id}> 
+                                    <RelatedProdDetails key={relatedProd.id} style={{textAlign: "center"}} > 
                                         <p style={{cursor:"pointer"}} onClick={() => history.push(`/adiah/shop/products/${relatedProd.id}`)}> {relatedProd.name} </p>
                                         <RPImage onClick={() => history.push(`/adiah/shop/products/${relatedProd.id}`)} src={relatedProd.media.source}/>
                                         {relatedProd.price.formatted_with_code}
