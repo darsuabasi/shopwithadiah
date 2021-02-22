@@ -2,7 +2,7 @@
 <!--  -->
 <!-- ## [Live Site](https://withloveadiah.netlify.app/ 'With Love, Adiah: Live Site') -->
 
-### With Love, Adiah; a frontend e-commerce site inspired by my growth and knowledge around self love and care. The goal of this project was to be able to build on my skills as a Software Engineer, learn more about API's and what it takes to build an e-commerce site, especially at a time where it's become essential to a business' survival. 
+## With Love, Adiah: A frontend e-commerce site inspired by my growth and knowledge around self love and care. The goal of this project was to be able to build on my skills as a Software Engineer, learn more about API's and what it takes to build an e-commerce site, especially at a time where it's become essential to a business' survival. 
 
 ### *Note: Although users are able to put in their actual card information and see the charge via Stripe.js API, this is not a site where you order and recieve products. Please do NOT enter actual card information. A demo card number, zip code and expiration date will be located in the Checkout portion of the site.
 
