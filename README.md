@@ -6,17 +6,21 @@
 
 ### *Note: Although users are able to put in their actual card information and see the charge via Stripe.js API, this is not a site where you order and recieve products. Please do NOT enter actual card information. A demo card number, zip code and expiration date will be located in the Checkout portion of the site.
 
-### With Love, Adiah: Landing
-<img src="readmeImages/" width="850px">
 
-### With Love, Adiah: Product Page 
+<!-- ### With Love, Adiah: Landing
+<img src="readmeImages/shop-page.png" width="850px"> -->
+
+### With Love, Adiah: Shop
+<img src="readmeImages/shop-page.png" width="850px">
+
+<!-- ### With Love, Adiah: Product Page 
 <img src="readmeImages/" width="850px">
 
 ### With Love, Adiah: View Single Products
 <img src="readmeImages/" width="850px">
 
 ### With Love, Adiah: Checkout Process 
-<img src="readmeImages/" width="850px">
+<img src="readmeImages/" width="850px"> -->
 
 This app was built with React.
 Best viewed on Web [Beta Mode: We plan on continuing to build.]
