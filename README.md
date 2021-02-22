@@ -23,7 +23,7 @@
 <img src="readmeImages/" width="850px"> -->
 
 This app was built with React.
-Best viewed on Web [Beta Mode: We plan on continuing to build.]
+Best viewed on Web [Beta Mode: Still building.]
 
 ## Features
 - Guests can add and remove products to cart
