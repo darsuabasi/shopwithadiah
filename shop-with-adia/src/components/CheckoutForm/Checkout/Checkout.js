@@ -6,9 +6,9 @@ import AddressForm from '../AddressForm';
 import PaymentForm from '../PaymentForm';
 import styled from 'styled-components/macro';
 import useStyles from './styles';
+import './checkout.css'
 
 const steps = ['Shipping Address', 'Payment Details'];
-
 
 const ConfirmationDiv = styled.div`
     width: 100%;
@@ -62,9 +62,9 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
   let Confirmation = () => (order.customer ? (
     <>
       <ConfirmationDiv>
-        <h1 variant="h5">Thank you for your purchase, {order.customer.firstname} {order.customer.lastname}!</h1>
+        <h1 variant="h5">{order.customer.firstname} {order.customer.lastname}, thank you for your purchase, !</h1>
         <Divider className={classes.divider} />
-        <h3 variant="subtitle2">Order ref: {order.customer_reference}</h3>
+        <h3 variant="subtitle2">Your Order Reference Number: {order.customer_reference}</h3>
       </ConfirmationDiv>
       <br />
       <Button component={Link} variant="outlined" type="button" to="/adiah"> Head Home </Button>
