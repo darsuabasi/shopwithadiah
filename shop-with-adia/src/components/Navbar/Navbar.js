@@ -7,7 +7,9 @@ import { FaBars } from 'react-icons/fa';
 import { GiShoppingCart } from 'react-icons/gi';
 // import { useSelector, useDispatch } from "react-redux";
 // import { useStateValue } from "../../StateProvider";
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector, useDispatch } from "react-redux";
+import logoOne from '../../assets/logo-w-black.png';
+import logoTwo from '../../assets/logo-w-pink.png'
 
 
 const Nav = styled.nav`
@@ -168,7 +170,7 @@ const Navbar = ({toggle, totalItems}) => {
 
     return (
         <Nav class="sidebar" className="main_navbar_container active">
-            <Logo to="/"> Adiah Logo </Logo>
+            <Logo to="/"> <img style={{width: '90px', height: '78px'}} src={logoTwo} /> </Logo>
 
             <MenuBars onClick={toggle}/>
 
