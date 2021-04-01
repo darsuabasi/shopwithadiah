@@ -46,4 +46,4 @@ Best viewed on Web [Beta Mode: We plan on continuing to build.]
 - Understanding of User Flow on e-commerce sites (What works/What doesn't)
 - Research on best UX/UI practices based on the type of site one is building 
 
-## Deployment: Coming Soon!
+## Deployment: Coming Soon! April
