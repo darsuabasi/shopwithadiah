@@ -18,6 +18,7 @@ import Cart from './components/Cart/Cart';
 import CartItem from './components/Cart/CartItem/CartItem';
 import Checkout from './components/CheckoutForm/Checkout/Checkout';
 import ProductInfo from './components/Shop/ProductInfo/ProductInfo';
+import Error from './components/Error/Error';
 // import SingleProductDisplay from './components/Shop/ShopParts/SingleProductDisplay';
 import commerce from './lib/commerce';
 
@@ -154,6 +155,10 @@ const App = () => {
 
               <Route path={"/adiah/shop/products/:productId"}>
                 <ProductInfo products={products} onAddToCart={handleAddToCart} handleUpdateCartQty handleFetchSingleProduct/>
+              </Route>
+
+              <Route exact path={"*"}>
+                <Error/>
               </Route>
               
             </Switch>
