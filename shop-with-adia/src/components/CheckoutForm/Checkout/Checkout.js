@@ -62,12 +62,12 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
   let Confirmation = () => (order.customer ? (
     <>
       <ConfirmationDiv>
-        <h1 variant="h5">{order.customer.firstname} {order.customer.lastname}, thank you for your purchase, !</h1>
+        <h1 variant="h5">{order.customer.firstname} {order.customer.lastname}, thank you for your purchase!</h1>
         <Divider className={classes.divider} />
         <h3 variant="subtitle2">Your Order Reference Number: {order.customer_reference}</h3>
       </ConfirmationDiv>
       <br />
-      <Button component={Link} variant="outlined" type="button" to="/adiah"> Head Home </Button>
+      <Button component={Link} variant="outlined" type="button" to="/"> Head Home </Button>
     </>
   ) 
   // : isFinished ? (

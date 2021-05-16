@@ -18,6 +18,7 @@ import Cart from './components/Cart/Cart';
 import CartItem from './components/Cart/CartItem/CartItem';
 import Checkout from './components/CheckoutForm/Checkout/Checkout';
 import ProductInfo from './components/Shop/ProductInfo/ProductInfo';
+import Error from './components/Error/Error';
 // import SingleProductDisplay from './components/Shop/ShopParts/SingleProductDisplay';
 import commerce from './lib/commerce';
 
@@ -118,9 +119,9 @@ const App = () => {
     <Router>
       <Switch>
   
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <Landing/>
-        </Route>
+        </Route> */}
 
         <div className="main_app_WLA">
           <GlobalStyle/>
@@ -128,7 +129,11 @@ const App = () => {
           {/* <Dropdown isOpen={isOpen} toggle={toggle} /> */}
             <Switch>
 
-              <Route exact path={"/adiah"}>
+              {/* <Route exact path={"/adiah"}>
+                <Adiah {...InfoData}/>
+              </Route> */}
+
+              <Route exact path={"/"}>
                 <Adiah {...InfoData}/>
               </Route>
               
@@ -150,6 +155,10 @@ const App = () => {
 
               <Route path={"/adiah/shop/products/:productId"}>
                 <ProductInfo products={products} onAddToCart={handleAddToCart} handleUpdateCartQty handleFetchSingleProduct/>
+              </Route>
+
+              <Route exact path={"*"}>
+                <Error/>
               </Route>
               
             </Switch>
