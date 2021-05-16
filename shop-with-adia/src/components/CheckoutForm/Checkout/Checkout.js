@@ -67,7 +67,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
         <h3 variant="subtitle2">Your Order Reference Number: {order.customer_reference}</h3>
       </ConfirmationDiv>
       <br />
-      <Button component={Link} variant="outlined" type="button" to="/adiah"> Head Home </Button>
+      <Button component={Link} variant="outlined" type="button" to="/"> Head Home </Button>
     </>
   ) 
   // : isFinished ? (
