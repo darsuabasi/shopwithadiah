@@ -11,11 +11,8 @@
 ### With Love, Adiah: Landing
 <img src="readmeImages/landing-page.png" width="850px">
 
-<!-- ### With Love, Adiah: Shop
-<img src="readmeImages/shop-page.png" width="850px"> -->
-
 ### With Love, Adiah: Shop 
-<img src="readmeImages/product-story.gig" width="850px">
+<img src="readmeImages/product-story.gif" width="850px">
 
 ### With Love, Adiah: View Single Products
 <img src="readmeImages/single-prod-story.gif" width="850px">
